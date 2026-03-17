@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import LinkIcon from "../shared/LinkIcon";
 import { contacts, languages, profile, socials, softSkills } from "../../data/sidebarData";
 
@@ -63,9 +63,21 @@ function ContactIcon({ type }) {
 }
 
 export default function SidebarSection() {
+  const [showPDF, setShowPDF] = useState(false);
+
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setShowPDF(true);
+      return;
+    }
+    const handler = () => setShowPDF(true);
+    window.addEventListener("load", handler, { once: true });
+    return () => window.removeEventListener("load", handler);
+  }, []);
+
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo" data-reveal>
+      <div className="sidebar-logo">
         <img
           src={profile.photo}
           alt="CV Photo"
@@ -186,15 +198,17 @@ export default function SidebarSection() {
         </ul>
       </div>
 
-      <Suspense
-        fallback={
-          <span className="pdf-download-btn pdf-download-btn--loading">
-            Loading...
-          </span>
-        }
-      >
-        <PDFDownloadButton />
-      </Suspense>
+      {showPDF && (
+        <Suspense
+          fallback={
+            <span className="pdf-download-btn pdf-download-btn--loading">
+              Loading...
+            </span>
+          }
+        >
+          <PDFDownloadButton />
+        </Suspense>
+      )}
     </aside>
   );
 }
