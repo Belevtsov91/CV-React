@@ -1,0 +1,294 @@
+.experience {
+  position: relative;
+  margin-bottom: 10px;
+}
+.experience::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 1px;
+  height: 100%;
+  background: var(--gray-darker);
+  z-index: 0;
+}
+.exp-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--gray-lightest);
+  padding-top: 1px;
+}
+.timing {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.01em;
+  color: var(--gray-light);
+  margin: auto 0;
+}
+.job-title {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.01em;
+  color: var(--gray-light);
+}
+
+.job-title-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.job-title-btn:hover .job-title,
+.job-title-btn:focus-visible .job-title {
+  color: var(--gray-lightest);
+}
+
+.job-title-btn:focus-visible {
+  outline: none;
+}
+.company-name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 129%;
+  color: var(--gray-lightest);
+}
+.job-description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.01em;
+  color: var(--gray-light);
+  margin: 0;
+  padding-left: 23px;
+}
+.cont-svg {
+  border-radius: 100px;
+  padding: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--gray-darker);
+  position: relative;
+  z-index: 1;
+}
+.container-main-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cont-exp {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 32px;
+  padding-right: 24px;
+  gap: 20px;
+}
+.cont-dot {
+  border-radius: 100px;
+  padding: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--gray-darker);
+  position: relative;
+}
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.exp-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 18px;
+  width: 1px;
+  height: 80%;
+  background: var(--gray-darker);
+  z-index: 1;
+}
+
+.job-logo {
+  width: 60px;
+  height: 40px;
+  background-color: var(--gray-darker);
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.job-logo:not(.freelance-svg) {
+  width: 55px;
+  height: 20px;
+  border-radius: 12px;
+  background-color: var(--white);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.job-logo.freelance-svg {
+  background-color: transparent;
+}
+
+.dot-titel {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.list-item-exp {
+  padding-left: 23px;
+}
+.list-item-exp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.job-name-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.experience-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.experience-modal-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 120px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.experience-modal-image {
+  width: clamp(140px, 18vw, 220px);
+  max-height: 76px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  background-color: white;
+}
+
+.experience-modal-image.is-freelance {
+  width: clamp(120px, 15vw, 180px);
+  max-height: 92px;
+}
+
+.experience-modal-title {
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--gray-lightest);
+}
+
+.experience-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--gray-light);
+}
+
+.experience-modal-description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-lightest);
+}
+
+.experience-modal-description-intro {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-lightest);
+}
+
+.experience-modal-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.experience-modal-list-item {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-lightest);
+}
+
+.experience-modal-list-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-default);
+}
+
+.experience-modal-certificate {
+  width: min(100%, 860px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.experience-modal-certificate-title {
+  margin: 0;
+  text-align: center;
+  color: var(--gray-lightest);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.experience-modal-certificate-preview {
+  width: 100%;
+  min-height: clamp(280px, 52vh, 620px);
+  border: 1px solid rgba(226, 230, 238, 0.18);
+  border-radius: 12px;
+  background: #0f1424;
+}

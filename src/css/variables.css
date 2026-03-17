@@ -1,0 +1,36 @@
+:root {
+  --white: #fff;
+  --primary-darkest: #170f2e;
+  --primary-darker: #312163;
+  --primary-dark: #5531a7;
+  --primary-default: #9251f7;
+  --primary-light: #c696fc;
+  --primary-lighter: #efe2f9;
+  --primary-lightest: #f8f2fc;
+  --secondary-darker: #1f2347;
+  --secondary-dark: #2a337e;
+  --secondary-default: #516cf7;
+  --secondary-light: #95aafb;
+  --secondary-lighter: #e1e7fe;
+  --secondary-lightest: #f5f7ff;
+  --gray-darkest: #232339;
+  --gray-darker: #2e2e48;
+  --gray-dark: #47516b;
+  --gray-default: #79819a;
+  --gray-light: #acb1c3;
+  --gray-lighter: #d9dfe8;
+  --gray-lightest: #e2e6ee;
+  --gray-lightest-2: #f7f9fc;
+  --status-info: #22c3f1;
+  --status-success-light: #e7fae5;
+  --status-success: #4ac06f;
+  --status-success-dark: #1f5c43;
+  --status-warning-light: #fefcbf;
+  --status-warning: #f4ce10;
+  --status-warning-dark: #857129;
+}
+
+:root {
+  --font-family: "DM Sans", sans-serif;
+  --second-family: "Outfit", sans-serif;
+}

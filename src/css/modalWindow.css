@@ -1,0 +1,123 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background:
+    radial-gradient(
+      circle at 20% 8%,
+      rgba(146, 81, 247, 0.2) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 86% 88%,
+      rgba(81, 108, 247, 0.2) 0%,
+      transparent 46%
+    ),
+    rgba(35, 35, 57, 0.82);
+  backdrop-filter: blur(2px);
+}
+
+.modal-window {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  max-width: 1200px;
+  max-height: 900px;
+  min-width: min(80vw, 320px);
+  min-height: min(80vh, 280px);
+  padding: 48px 24px 24px;
+  border: 1px solid rgba(121, 129, 154, 0.32);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(42, 51, 126, 0.38) 0%,
+      rgba(35, 35, 57, 0.98) 48%,
+      rgba(46, 46, 72, 0.98) 100%
+    ),
+    var(--gray-darkest);
+  box-shadow:
+    0 24px 58px rgba(23, 15, 46, 0.45),
+    inset 0 1px 0 rgba(248, 242, 252, 0.05);
+  overflow: auto;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(121, 129, 154, 0.46);
+  border-radius: 10px;
+  background: rgba(46, 46, 72, 0.88);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.modal-close-btn::before,
+.modal-close-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--gray-lightest);
+  transform-origin: center;
+}
+
+.modal-close-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-close-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus-visible {
+  border-color: var(--primary-light);
+  background: rgba(146, 81, 247, 0.22);
+  transform: scale(1.03);
+}
+
+.modal-close-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34, 195, 241, 0.3);
+}
+
+.modal-title {
+  margin-bottom: 16px;
+  color: var(--gray-lightest-2);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.modal-content {
+  color: var(--gray-lighter);
+}
+
+@media (max-width: 767px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-window {
+    width: 80vw;
+    height: 80vh;
+    padding: 44px 16px 16px;
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+}

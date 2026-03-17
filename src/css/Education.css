@@ -1,0 +1,159 @@
+.education {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.education::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 1px;
+  height: 100%;
+  background: var(--gray-darker);
+  z-index: 0;
+}
+.edu-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--gray-lightest);
+  padding-top: 1px;
+}
+.education-name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray-lightest);
+}
+
+.educ-name-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.educ-name-btn:hover .education-name,
+.educ-name-btn:focus-visible .education-name {
+  color: var(--secondary-lightest);
+}
+
+.educ-name-btn:focus-visible {
+  outline: none;
+}
+.education-degree {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 129%;
+  color: var(--gray-lightest);
+}
+.education-year {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--gray-light);
+  margin-top: auto;
+}
+.education-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  margin-left: 32px;
+}
+.education-item {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+.educ-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: var(--gray-darker);
+  border-radius: 100px;
+}
+.educ-name {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.last-img {
+  background-color: white;
+}
+.second-img {
+  background-color: transparent;
+}
+.first-img {
+  background-color: white;
+  width: 150px;
+}
+
+.education-modal .experience-modal-image-wrap {
+  min-height: 180px;
+}
+
+.education-modal .experience-modal-image.educ-img {
+  width: clamp(180px, 28vw, 300px);
+  height: auto;
+  max-height: 170px;
+  padding: 12px;
+  border-radius: 22px;
+  border: 1px solid rgba(121, 129, 154, 0.28);
+  object-fit: contain;
+  object-position: center;
+}
+
+.education-modal .experience-modal-image.educ-img.first-img {
+  width: clamp(240px, 36vw, 420px);
+  background-color: var(--white);
+}
+
+.education-modal .experience-modal-image.educ-img.second-img {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.education-modal .experience-modal-image.educ-img.last-img {
+  background-color: var(--white);
+}
+
+@media (max-width: 700px) {
+  .education-list {
+    margin-left: 24px;
+    gap: 16px;
+  }
+
+  .education-item {
+    flex: 1 1 100%;
+    gap: 12px;
+  }
+
+  .educ-name {
+    gap: 10px;
+  }
+
+  .educ-img {
+    width: 76px;
+    height: 76px;
+  }
+
+  .first-img {
+    width: 96px;
+  }
+}

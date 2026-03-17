@@ -1,0 +1,238 @@
+.latest-projects {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.latest-projects::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 1px;
+  height: calc(100% - 15px);
+  background: var(--gray-darker);
+  z-index: 0;
+}
+
+.lt-pr-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: 0.01em;
+  color: var(--gray-lightest);
+}
+
+.project-name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 125%;
+  color: var(--gray-lightest);
+  min-height: 40px;
+}
+
+.project-name a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.project-description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 129%;
+  letter-spacing: 0.01em;
+  color: var(--gray-light);
+  min-height: 46px;
+}
+
+.project-description.is-expanded {
+  min-height: auto;
+}
+
+.project-desc-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--secondary-light);
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  margin-left: 2px;
+  vertical-align: baseline;
+}
+
+.project-desc-toggle:hover,
+.project-desc-toggle:focus-visible {
+  color: var(--secondary-lightest);
+}
+
+.project-link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 125%;
+  color: var(--secondary-light);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 24px;
+  max-width: calc(100% - 32px);
+  margin-left: 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 6px;
+}
+
+.projects-item {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 8px;
+  background-color: var(--gray-darker);
+  padding: 12px;
+  width: 240px;
+  border-radius: 30px;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.projects-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+img.project-frame {
+  width: 128px;
+  height: 96px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.project-frame-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.project-frame-btn:hover .project-frame,
+.project-frame-btn:focus-visible .project-frame {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 2px rgba(146, 81, 247, 0.35);
+}
+
+.project-frame-btn:focus-visible {
+  outline: none;
+}
+
+.project-frame {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.project-name {
+  text-align: center;
+}
+.cont-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+  margin-top: auto;
+}
+
+.project-svg-cont {
+  position: relative;
+  background: var(--secondary-dark);
+  border-radius: 100px;
+  width: 16px;
+  height: 16px;
+}
+.proj-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.project-modal-image-wrap {
+  width: min(100%, 900px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(121, 129, 154, 0.28);
+}
+
+.project-modal-image {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project-modal-title {
+  margin: 0;
+  text-align: center;
+  color: var(--gray-lightest-2);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.2;
+}
+
+.project-modal-description {
+  margin: 0;
+  color: var(--gray-lightest);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.project-modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.project-modal-link {
+  color: var(--secondary-lightest);
+  background: rgba(81, 108, 247, 0.2);
+  border: 1px solid rgba(149, 170, 251, 0.4);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.project-modal-link:hover,
+.project-modal-link:focus-visible {
+  background: rgba(146, 81, 247, 0.26);
+  border-color: rgba(198, 150, 252, 0.6);
+}
+
+@media (max-width: 700px) {
+  .projects-list {
+    margin-left: 24px;
+    gap: 14px;
+    max-width: calc(100% - 24px);
+  }
+
+  .projects-item {
+    width: 220px;
+    border-radius: 20px;
+  }
+}
