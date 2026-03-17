@@ -198,7 +198,7 @@ export default function SidebarSection() {
         </ul>
       </div>
 
-      {showPDF && (
+      {showPDF ? (
         <Suspense
           fallback={
             <span className="pdf-download-btn pdf-download-btn--loading">
@@ -208,6 +208,8 @@ export default function SidebarSection() {
         >
           <PDFDownloadButton />
         </Suspense>
+      ) : (
+        <span className="pdf-download-btn pdf-download-btn--loading" aria-hidden="true" />
       )}
     </aside>
   );
