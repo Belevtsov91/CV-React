@@ -2,7 +2,7 @@
 
 Interactive CV/portfolio site built with React + Vite. Features a downloadable PDF CV, contact forms with Telegram and email delivery, and scroll-reveal animations.
 
-**Live:** [belevtsov.dev](https://belevtsov.dev)
+**Live:** [belevtsov.dev](https://belevtsov-dev.vercel.app)
 **Backend:** [back-CV-react](https://github.com/Belevtsov91/back-CV-react)
 
 ---

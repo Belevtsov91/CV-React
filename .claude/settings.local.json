@@ -4,7 +4,16 @@
       "Bash(npm install:*)",
       "Bash(npm test:*)",
       "Bash(find /c/Disk.D/CV-React/src -type f \\\\\\(-name *.js -o -name *.jsx -o -name *.css -o -name *.html \\\\\\))",
-      "Bash(find /c/Disk.D/back-CV-react/src -type f \\\\\\(-name *.js -o -name *.ts -o -name *.jsx -o -name *.tsx \\\\\\))"
+      "Bash(find /c/Disk.D/back-CV-react/src -type f \\\\\\(-name *.js -o -name *.ts -o -name *.jsx -o -name *.tsx \\\\\\))",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_select_option",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot"
     ]
   }
 }

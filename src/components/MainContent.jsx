@@ -9,6 +9,7 @@ export default function MainContent({
   projectsListRef,
   skillsOpen,
   toggleSkills,
+  closeSkills,
 }) {
   return (
     <main className="main-content">
@@ -19,6 +20,7 @@ export default function MainContent({
       <SkillsSection
         skillsOpen={skillsOpen}
         toggleSkills={toggleSkills}
+        closeSkills={closeSkills}
       />
       <ContactSection />
     </main>

@@ -4,7 +4,7 @@ import { useContactForm, SUBJECT_OPTIONS } from "@/hooks/useContactForm";
 const TELEGRAM_BOT_URL = "https://t.me/belevtsov_cv_bot";
 
 export default function ContactMeTelegram({ isOpen, onClose }) {
-  const { fields, errors, valid, sending, handleClose, handleChange, handleSubmit, runValidation } =
+  const { fields, errors, valid, sending, handleClose, handleChange, handleSubmit } =
     useContactForm({
       onClose,
       messageTransform: (f) => f.message,
@@ -12,9 +12,7 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
     });
 
   const handleOpenBot = () => {
-    if (!runValidation()) return;
     window.open(TELEGRAM_BOT_URL, "_blank", "noopener,noreferrer");
-    handleClose();
   };
 
   return (

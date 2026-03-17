@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   backendSkills,
   designSkills,
@@ -5,12 +6,25 @@ import {
 } from "../../data/skillsData";
 import SectionHeading from "../shared/SectionHeading";
 
-export default function SkillsSection({ skillsOpen, toggleSkills }) {
+export default function SkillsSection({ skillsOpen, toggleSkills, closeSkills }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!skillsOpen) return;
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        closeSkills();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [skillsOpen, closeSkills]);
+
   return (
     <section className="skills">
       <SectionHeading title="Skills" titleClassName="skills-title" />
 
-      <div className="set-skills">
+      <div className="set-skills" ref={containerRef}>
         <div className="design-front-set" data-reveal>
           <div className="design-cont">
             <svg className="design-svg" aria-hidden="true" />

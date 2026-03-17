@@ -30,6 +30,7 @@ export default function AppContainer() {
   }, [skillsOpen]);
 
   const toggleSkills = () => setSkillsOpen((prev) => !prev);
+  const closeSkills = () => setSkillsOpen(false);
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function AppContainer() {
           projectsListRef={projectsListRef}
           skillsOpen={skillsOpen}
           toggleSkills={toggleSkills}
+          closeSkills={closeSkills}
         />
       </div>
     </>

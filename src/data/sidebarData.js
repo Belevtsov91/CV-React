@@ -8,13 +8,14 @@ export const profile = {
 export const contacts = [
   {
     label: "Email:",
-    href: "mailto:vitaliybelevcov@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=vitaliybelevcov@gmail.com",
     text: "vitaliybelevcov@gmail.com",
+    external: true,
     icon: "email",
   },
   {
     label: "Website:",
-    href: "https://belevtsov.dev",
+    href: "https://belevtsov-dev.vercel.app",
     text: "belevtsov.dev",
     external: true,
     icon: "link",
