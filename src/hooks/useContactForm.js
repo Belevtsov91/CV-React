@@ -54,6 +54,7 @@ export function useContactForm({ onClose, messageTransform, successToast }) {
     }
     if (!fields.subject) { next.subject = true; messages.push("Please select a subject"); }
     if (!fields.message.trim()) { next.message = true; messages.push("Message is required"); }
+    else if (fields.message.trim().length < 10) { next.message = true; messages.push("Message must be at least 10 characters"); }
     return { next, messages };
   };
 

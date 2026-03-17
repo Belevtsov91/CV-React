@@ -1,7 +1,7 @@
 export const educationItems = [
   {
     id: "goit-fullstack-2024",
-    logo: "/img/sidebar/goit.png",
+    logo: "/img/sidebar/goit.webp",
     logoClassName: "educ-img first-img",
     logoAlt: "GoIT",
     school: "GoIT",
@@ -13,7 +13,7 @@ export const educationItems = [
   },
   {
     id: "beetroot-frontend-2022",
-    logo: "/img/beetroot.jpg",
+    logo: "/img/beetroot.webp",
     logoClassName: "educ-img second-img",
     logoAlt: "Beetroot",
     school: "Beetroot",
@@ -31,7 +31,7 @@ The training included multiple practical projects such as responsive landing pag
   },
   {
     id: "ntu-khpi-ee-2009",
-    logo: "/img/Ntu-khpi-logo.png",
+    logo: "/img/Ntu-khpi-logo.webp",
     logoClassName: "educ-img last-img",
     logoAlt: "NTU KhPI",
     school: "National Technical University “Kharkiv Polytechnic Institute”",

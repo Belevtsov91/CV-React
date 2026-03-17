@@ -2,7 +2,7 @@ export const profile = {
   name: "Vitalii Belevtsov",
   subtitle: "Junior Frontend / Full-Stack Developer",
   looking: "Available for Frontend & Full-Stack roles · Remote",
-  photo: "/img/CV-photo.jpg",
+  photo: "/img/CV-photo.webp",
 };
 
 export const contacts = [

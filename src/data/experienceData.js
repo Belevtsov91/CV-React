@@ -24,7 +24,7 @@ export const experiences = [
   {
     id: "supportive-care-analyst",
     period: "Dec 2022 - Jan 2026",
-    logo: "/img/support.jpg",
+    logo: "/img/support.webp",
     logoClassName: "job-logo freelance-svg",
     logoAlt: "Supportive Care logo",
     logoWidth: 60,
