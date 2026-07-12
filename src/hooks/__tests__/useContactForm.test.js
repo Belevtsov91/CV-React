@@ -80,7 +80,7 @@ describe("handleChange", () => {
     act(() => {
       result.current.runValidation();
     });
-    expect(result.current.errors.name).toBe(true);
+    expect(result.current.errors.name).toBeTruthy();
 
     act(() => {
       result.current.handleChange({ target: { name: "name", value: "Alice" } });
@@ -108,7 +108,7 @@ describe("runValidation", () => {
       valid = result.current.runValidation();
     });
     expect(valid).toBe(false);
-    expect(result.current.errors.email).toBe(true);
+    expect(result.current.errors.email).toBeTruthy();
   });
 
   it("returns true when all fields valid", () => {

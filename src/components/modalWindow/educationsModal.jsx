@@ -37,11 +37,35 @@ export default function EducationsModal({ selectedEducationId, onClose }) {
           {selectedEducation.certificateFile && (
             <div className="experience-modal-certificate">
               <h4 className="experience-modal-certificate-title">Certificate</h4>
-              <iframe
-                title={`${selectedEducation.school} certificate`}
-                src={`${selectedEducation.certificateFile}#view=FitH`}
-                className="experience-modal-certificate-preview"
-              />
+              {selectedEducation.certificatePreview ? (
+                <a
+                  className="certificate-preview-link"
+                  href={selectedEducation.certificateFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${selectedEducation.school} certificate PDF`}
+                >
+                  <img
+                    className="certificate-preview-img"
+                    src={selectedEducation.certificatePreview}
+                    alt={`${selectedEducation.school} certificate preview`}
+                    width="575"
+                    height="618"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="certificate-preview-hint">Open PDF ↗</span>
+                </a>
+              ) : (
+                <a
+                  className="certificate-download-link"
+                  href={selectedEducation.certificateFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open certificate (PDF) ↗
+                </a>
+              )}
             </div>
           )}
         </div>

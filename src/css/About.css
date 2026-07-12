@@ -10,18 +10,16 @@
   top: 16px;
   width: 1px;
   height: 100%;
-  background: var(--gray-darker);
+  background: var(--timeline-line);
   z-index: 0;
 }
 
 .about-title {
   font-family: var(--second-family);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 133%;
-  letter-spacing: 0.01em;
-  text-align: center;
-  color: var(--gray-lightest);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--text-primary);
   padding-top: 1px;
 }
 
@@ -36,9 +34,10 @@
 
 .about-short-text {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--gray-light);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 680px;
 }
 
 .about-read-more {
@@ -47,21 +46,28 @@
   border: none;
   padding: 0;
   font-family: var(--font-family);
-  font-size: 12px;
-  color: var(--primary-default);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--primary-light);
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
+}
+
+.about-read-more::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
 .about-read-more:hover {
-  opacity: 0.75;
+  color: var(--primary-lighter);
+}
+
+.about-read-more:hover::after {
+  transform: translateX(3px);
 }
 
 /* ── Modal ── */
-.about-modal .modal-window {
-  max-width: 620px;
-}
-
 .about-modal-content {
   display: flex;
   flex-direction: column;

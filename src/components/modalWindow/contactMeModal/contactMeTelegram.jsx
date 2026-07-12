@@ -1,5 +1,10 @@
 import ModalWindow from "../modalWindow";
-import { useContactForm, SUBJECT_OPTIONS } from "@/hooks/useContactForm";
+import {
+  useContactForm,
+  SUBJECT_OPTIONS,
+  NAME_MAX,
+  MESSAGE_MAX,
+} from "@/hooks/useContactForm";
 
 const TELEGRAM_BOT_URL = "https://t.me/belevtsov_cv_bot";
 
@@ -44,10 +49,14 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
             name="name"
             type="text"
             autoComplete="name"
+            autoFocus
+            maxLength={NAME_MAX}
             placeholder="Your name"
             value={fields.name}
             onChange={handleChange}
+            aria-invalid={Boolean(errors.name)}
           />
+          {errors.name && <span className="contact-me-error">{errors.name}</span>}
         </div>
 
         <div className="contact-me-field">
@@ -58,10 +67,13 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
             name="email"
             type="email"
             autoComplete="email"
+            maxLength={254}
             placeholder="your@email.com"
             value={fields.email}
             onChange={handleChange}
+            aria-invalid={Boolean(errors.email)}
           />
+          {errors.email && <span className="contact-me-error">{errors.email}</span>}
         </div>
 
         <div className="contact-me-field">
@@ -72,6 +84,7 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
             name="subject"
             value={fields.subject}
             onChange={handleChange}
+            aria-invalid={Boolean(errors.subject)}
           >
             {SUBJECT_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value} disabled={opt.value === ""}>
@@ -79,6 +92,7 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
               </option>
             ))}
           </select>
+          {errors.subject && <span className="contact-me-error">{errors.subject}</span>}
         </div>
 
         <div className="contact-me-field">
@@ -87,10 +101,22 @@ export default function ContactMeTelegram({ isOpen, onClose }) {
             className={`contact-me-textarea${errors.message ? " is-error" : valid.message ? " is-valid" : ""}`}
             id="tg-message"
             name="message"
+            maxLength={MESSAGE_MAX}
             placeholder="Write your message..."
             value={fields.message}
             onChange={handleChange}
+            aria-invalid={Boolean(errors.message)}
           />
+          <div className="contact-me-field-footer">
+            {errors.message ? (
+              <span className="contact-me-error">{errors.message}</span>
+            ) : (
+              <span />
+            )}
+            <span className="contact-me-counter">
+              {fields.message.length}/{MESSAGE_MAX}
+            </span>
+          </div>
         </div>
 
         <div className="contact-me-actions">

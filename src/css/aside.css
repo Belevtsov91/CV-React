@@ -1,54 +1,52 @@
 .sidebar {
-  background: var(--gray-darkest);
+  background: rgba(255, 255, 255, 0.018);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--white);
-  padding: 24px;
+  padding: 40px 28px;
+}
+
+@media (min-width: 1280px) {
+  .sidebar {
+    padding: 48px 36px;
+  }
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 24px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 32px;
+  gap: 30px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(146, 81, 247, 0.35) transparent;
 }
 
-.profile-photo {
-  border: 1px solid var(--primary-default);
-  border-radius: 100px;
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  margin-bottom: 16px;
+.sidebar-inner::-webkit-scrollbar {
+  width: 5px;
 }
 
-.sidebar-logo {
-  font-family: var(--second-family);
-  font-weight: 500;
+.sidebar-inner::-webkit-scrollbar-track {
+  background: transparent;
 }
-.title {
-  font-size: 24px;
-  line-height: 125%;
-  letter-spacing: -0.02em;
-  color: var(--gray-lightest);
-  margin-bottom: 4px;
+
+.sidebar-inner::-webkit-scrollbar-thumb {
+  background: rgba(146, 81, 247, 0.35);
+  border-radius: 4px;
+  border: none;
 }
-.sub-title {
-  font-size: 18px;
-  line-height: 133%;
-  letter-spacing: 0.01em;
-  background: linear-gradient(90deg, #a478e8 0%, #d1d3db 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 16px;
-}
-.looking {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 129%;
-  color: var(--gray-lighter);
+
+.sidebar-inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(146, 81, 247, 0.6);
 }
 
 .contacts-title {
   display: none;
 }
+
 .contacts-list,
 .socials-list,
 .languages,
@@ -59,24 +57,34 @@
   flex-direction: column;
   gap: 12px;
 }
+
 .contacts-item,
 .socials-item,
 .languages-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 14px;
   line-height: 130%;
 }
+
 .svg-contacts,
 .svg-socials {
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
+  width: 26px;
+  height: 26px;
   margin-top: 2px;
-  background-color: var(--gray-darker);
-  border-radius: 100px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 9px;
   position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacts-item:hover .svg-contacts,
+.socials-item:hover .svg-socials {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 16px -4px var(--glow-primary);
 }
 
 .svg-languages {
@@ -95,22 +103,29 @@
   fill: var(--white);
 }
 
+.svg-socials {
+  border: none;
+}
+
 .contacts-text,
 .socials-text,
 .languages-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
+
 .item-info,
 .socials-label {
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 10px;
   line-height: 133%;
-  letter-spacing: 0.01em;
-  color: var(--gray-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
+
 .contacts-link {
   display: flex;
   align-items: center;
@@ -126,9 +141,30 @@
 .socials-link {
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 129%;
   color: var(--gray-lighter);
+  transition: color 0.2s ease;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.contacts-item,
+.socials-item {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.contacts-text,
+.socials-text {
+  min-width: 0;
+}
+
+.contacts-link:hover,
+.contacts-link:focus-visible,
+.socials-link:hover,
+.socials-link:focus-visible {
+  color: var(--primary-light);
 }
 
 .socials {
@@ -138,19 +174,21 @@
 }
 
 .socials-title,
-.languages-title {
+.languages-title,
+.soft-skills-title {
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 10px;
   line-height: 133%;
-  letter-spacing: 0.01em;
-  color: var(--gray-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .language-name {
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 129%;
   color: var(--gray-lighter);
 }
@@ -161,16 +199,7 @@
   font-size: 10px;
   line-height: 133%;
   letter-spacing: 0.01em;
-  color: var(--gray-light);
-}
-
-.soft-skills-title {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 133%;
-  letter-spacing: 0.01em;
-  color: var(--gray-light);
+  color: var(--text-muted);
 }
 
 .soft-skills-list {
@@ -191,58 +220,52 @@
   height: 6px;
   border-radius: 50%;
   background: var(--primary-default);
+  box-shadow: 0 0 8px var(--glow-primary);
 }
 
 .soft-skills-name {
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 129%;
   color: var(--gray-lighter);
-}
-
-.pdf-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  border: 1px solid var(--status-info);
-  border-radius: 8px;
-  background: transparent;
-  color: var(--gray-lighter);
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 129%;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.pdf-download-btn:hover {
-  background: var(--status-info);
-  color: var(--white);
-}
-
-.pdf-download-icon {
-  flex-shrink: 0;
 }
 
 @media (min-width: 768px) and (max-width: 900px) {
   .sidebar {
+    order: 2;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .sidebar-inner {
+    position: static;
+    max-height: none;
+    overflow: visible;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
     gap: 24px;
   }
 
-  .sidebar-logo {
-    grid-column: 1 / -1;
-  }
-
   .contacts,
   .socials,
   .languages {
     min-width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    order: 2;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 32px 24px;
+  }
+
+  .sidebar-inner {
+    position: static;
+    max-height: none;
+    overflow: visible;
   }
 }

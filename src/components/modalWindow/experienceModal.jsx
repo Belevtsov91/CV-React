@@ -65,11 +65,35 @@ export default function ExpirienceModal({
               <h4 className="experience-modal-certificate-title">
                 Certificate
               </h4>
-              <iframe
-                title={`${selectedExperience.company} certificate`}
-                src={`${selectedExperience.certificateFile}#view=FitH`}
-                className="experience-modal-certificate-preview"
-              />
+              {selectedExperience.certificatePreview ? (
+                <a
+                  className="certificate-preview-link"
+                  href={selectedExperience.certificateFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${selectedExperience.company} certificate PDF`}
+                >
+                  <img
+                    className="certificate-preview-img"
+                    src={selectedExperience.certificatePreview}
+                    alt={`${selectedExperience.company} certificate preview`}
+                    width="575"
+                    height="618"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="certificate-preview-hint">Open PDF ↗</span>
+                </a>
+              ) : (
+                <a
+                  className="certificate-download-link"
+                  href={selectedExperience.certificateFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open certificate (PDF) ↗
+                </a>
+              )}
             </div>
           )}
         </div>

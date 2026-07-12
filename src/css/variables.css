@@ -34,3 +34,30 @@
   --font-family: "DM Sans", sans-serif;
   --second-family: "Outfit", sans-serif;
 }
+
+:root {
+  --bg-base: #0a0714;
+  --text-primary: #f2f0fa;
+  --text-secondary: #b8bdd2;
+  --text-muted: #8189a3;
+  --glass-bg: rgba(255, 255, 255, 0.035);
+  --glass-bg-hover: rgba(146, 81, 247, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(198, 150, 252, 0.45);
+  --gradient-brand: linear-gradient(90deg, #c696fc 0%, #9251f7 45%, #516cf7 100%);
+  --glow-primary: rgba(146, 81, 247, 0.35);
+  --glow-secondary: rgba(81, 108, 247, 0.28);
+  --timeline-line: linear-gradient(
+    180deg,
+    rgba(146, 81, 247, 0) 0%,
+    rgba(146, 81, 247, 0.45) 12%,
+    rgba(146, 81, 247, 0.45) 88%,
+    rgba(146, 81, 247, 0) 100%
+  );
+}
+
+@property --card-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}

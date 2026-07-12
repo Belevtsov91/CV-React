@@ -7,7 +7,7 @@ export default function AboutSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="about">
+    <section className="about" id="about">
       <SectionHeading title="About Me" titleClassName="about-title" />
 
       <div className="about-content" data-reveal>

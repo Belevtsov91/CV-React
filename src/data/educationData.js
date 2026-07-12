@@ -8,6 +8,7 @@ export const educationItems = [
     degree: "Full-Stack Web Development",
     years: "2024 - 2025",
     certificateFile: "/img/Belevtsov_Vitalii_Certificate.pdf",
+    certificatePreview: "/img/certificate-preview.webp",
     descriptionShort: "Full-stack curriculum: HTML5, CSS3, JavaScript (ES6+), React, Redux Toolkit, Node.js, MongoDB, Git. Built multiple projects including REST API integrations and responsive web apps.",
     descriptionModal: `Completed a comprehensive Full-Stack Developer course at GoIT, covering HTML5, CSS3, JavaScript (ES6+), React, Node.js, and database management.\n\nDeveloped multiple projects including responsive web applications and REST API integrations. Gained hands-on experience with version control using Git, collaborative development workflows, and modern tooling (Vite, Redux Toolkit, MongoDB).`,
   },

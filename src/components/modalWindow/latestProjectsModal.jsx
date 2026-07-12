@@ -28,10 +28,29 @@ export default function LatestProjectsModal({ selectedProjectTitle, onClose }) {
             />
           </div>
           <h3 className="project-modal-title">{selectedProject.title}</h3>
+          {selectedProject.tech?.length > 0 && (
+            <ul className="project-modal-tech" aria-label="Technologies used">
+              {selectedProject.tech.map((tech) => (
+                <li className="project-modal-tech-chip" key={tech}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          )}
           <p className="project-modal-description">
             {selectedProject.modalDescription?.trim() ||
               selectedProject.description}
           </p>
+          {selectedProject.contribution && (
+            <div className="project-modal-contribution">
+              <h4 className="project-modal-contribution-title">
+                My contribution
+              </h4>
+              <p className="project-modal-contribution-text">
+                {selectedProject.contribution}
+              </p>
+            </div>
+          )}
           <div className="project-modal-links">
             <a
               className="project-modal-link"

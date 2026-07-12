@@ -14,6 +14,13 @@ export const SUBJECT_OPTIONS = [
   { value: "Other", label: "Other" },
 ];
 
+// Mirrors backend Zod schema (name 2-100, message 10-2000).
+// MESSAGE_MAX is lower than 2000 to leave room for the signature appended
+// by messageTransform (name + email can add up to ~380 chars).
+export const NAME_MAX = 100;
+export const MESSAGE_MIN = 10;
+export const MESSAGE_MAX = 1600;
+
 const EMPTY_FIELDS = { name: "", email: "", subject: "", message: "", website: "" };
 
 export function useContactForm({ onClose, messageTransform, successToast }) {
@@ -45,17 +52,22 @@ export function useContactForm({ onClose, messageTransform, successToast }) {
 
   const validate = () => {
     const next = {};
-    const messages = [];
-    if (!fields.name.trim()) { next.name = true; messages.push("Name is required"); }
-    if (!fields.email.trim()) {
-      next.email = true; messages.push("Email is required");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
-      next.email = true; messages.push("Enter a valid email");
-    }
-    if (!fields.subject) { next.subject = true; messages.push("Please select a subject"); }
-    if (!fields.message.trim()) { next.message = true; messages.push("Message is required"); }
-    else if (fields.message.trim().length < 10) { next.message = true; messages.push("Message must be at least 10 characters"); }
-    return { next, messages };
+    const name = fields.name.trim();
+    if (!name) next.name = "Name is required";
+    else if (name.length < 2) next.name = "Name must be at least 2 characters";
+
+    const email = fields.email.trim();
+    if (!email) next.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Enter a valid email";
+
+    if (!fields.subject) next.subject = "Please select a subject";
+
+    const message = fields.message.trim();
+    if (!message) next.message = "Message is required";
+    else if (message.length < MESSAGE_MIN)
+      next.message = `Message must be at least ${MESSAGE_MIN} characters`;
+
+    return next;
   };
 
   const getValidFields = (next) => {
@@ -69,12 +81,12 @@ export function useContactForm({ onClose, messageTransform, successToast }) {
 
   // Runs validation, sets error/valid state, shows toast — returns true if valid
   const runValidation = () => {
-    const { next, messages } = validate();
+    const next = validate();
     const validFields = getValidFields(next);
     setErrors(next);
     setValid(validFields);
-    if (messages.length) {
-      toast.error(messages.join(" · "));
+    if (Object.keys(next).length) {
+      toast.error("Please fix the highlighted fields.");
       return false;
     }
     return true;

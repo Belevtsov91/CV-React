@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "../../css/modalWindow.css";
 
 export default function ModalWindow({
@@ -8,13 +8,27 @@ export default function ModalWindow({
   title,
   className = "",
 }) {
+  const dialogRef = useRef(null);
+
   useEffect(() => {
     if (!isOpen) {
       return undefined;
     }
 
+    const dialog = dialogRef.current;
+    const previouslyFocused = document.activeElement;
+
+    if (dialog && !dialog.open) {
+      try {
+        dialog.showModal();
+      } catch {
+        dialog.setAttribute("open", "");
+      }
+    }
+
     const onEscapePress = (event) => {
       if (event.key === "Escape") {
+        event.preventDefault();
         onClose?.();
       }
     };
@@ -26,6 +40,9 @@ export default function ModalWindow({
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onEscapePress);
+      if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+        previouslyFocused.focus();
+      }
     };
   }, [isOpen, onClose]);
 
@@ -33,24 +50,26 @@ export default function ModalWindow({
     return null;
   }
 
-  const handleOverlayClick = (event) => {
+  const handleDialogClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose?.();
     }
   };
 
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onClose?.();
+  };
+
   return (
-    <div
-      className="modal-overlay"
-      role="presentation"
-      onClick={handleOverlayClick}
+    <dialog
+      ref={dialogRef}
+      className={`modal-window ${className}`.trim()}
+      aria-label={title || "Modal window"}
+      onClick={handleDialogClick}
+      onCancel={handleCancel}
     >
-      <section
-        className={`modal-window ${className}`.trim()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title || "Modal window"}
-      >
+      <div className="modal-inner">
         <button
           type="button"
           className="modal-close-btn"
@@ -61,7 +80,7 @@ export default function ModalWindow({
         {title && <h2 className="modal-title">{title}</h2>}
 
         <div className="modal-content">{children}</div>
-      </section>
-    </div>
+      </div>
+    </dialog>
   );
 }

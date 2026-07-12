@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import {
   backendSkills,
   designSkills,
@@ -6,92 +5,35 @@ import {
 } from "../../data/skillsData";
 import SectionHeading from "../shared/SectionHeading";
 
-export default function SkillsSection({ skillsOpen, toggleSkills, closeSkills }) {
-  const containerRef = useRef(null);
+const skillGroups = [
+  { title: "Frontend", skills: frontendSkills },
+  { title: "Backend & Tools", skills: backendSkills },
+  { title: "Design", skills: designSkills },
+];
 
-  useEffect(() => {
-    if (!skillsOpen) return;
-    const handleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        closeSkills();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [skillsOpen, closeSkills]);
-
+export default function SkillsSection() {
   return (
     <section className="skills">
       <SectionHeading title="Skills" titleClassName="skills-title" />
 
-      <div className="set-skills" ref={containerRef}>
-        <div className="design-front-set" data-reveal>
-          <div className="design-cont">
-            <svg className="design-svg" aria-hidden="true" />
-            <button
-              className="set-skills-title set-skills-toggle"
-              type="button"
-              aria-expanded={skillsOpen}
-              aria-controls="skills-design-list"
-              onClick={toggleSkills}
-            >
-              Design
-            </button>
-          </div>
-
-          <ul
-            className={`design-list ${skillsOpen ? "" : "is-collapsed"}`}
-            id="skills-design-list"
-          >
-            {designSkills.map((skill) => (
-              <li className="design-item" key={skill}>
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="development-set" data-reveal>
-          <div className="development-cont">
-            <svg className="development-svg" aria-hidden="true" />
-            <button
-              className="set-skills-title set-skills-toggle"
-              type="button"
-              aria-expanded={skillsOpen}
-              aria-controls="skills-development-grid"
-              onClick={toggleSkills}
-            >
-              Development
-            </button>
-          </div>
-
+      <div className="skills-wall">
+        {skillGroups.map((group, index) => (
           <div
-            className={`development-grid ${skillsOpen ? "" : "is-collapsed"}`}
-            id="skills-development-grid"
+            className="skills-group"
+            key={group.title}
+            data-reveal
+            style={{ "--reveal-delay": `${Math.min(index * 80, 320)}ms` }}
           >
-            <div className="development-column">
-              <h4 className="development-subtitle">Frontend</h4>
-              <ul className="development-main">
-                {frontendSkills.map((skill) => (
-                  <li className="development-main-item" key={skill}>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="development-column">
-              <h4 className="development-subtitle">Backend</h4>
-              <ul className="development-tools">
-                {backendSkills.map((skill) => (
-                  <li className="development-tools-item" key={skill}>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h3 className="skills-group-title">{group.title}</h3>
+            <ul className="skills-chips">
+              {group.skills.map((skill) => (
+                <li className="skill-chip" key={skill}>
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

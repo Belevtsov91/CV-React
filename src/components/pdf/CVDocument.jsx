@@ -6,11 +6,12 @@ import {
   StyleSheet,
   Link,
 } from "@react-pdf/renderer";
-import { profile, contacts, languages } from "../../data/sidebarData";
+import { profile, contacts, languages, socials } from "../../data/sidebarData";
 import { experiences } from "../../data/experienceData";
 import { educationItems } from "../../data/educationData";
 import { about } from "../../data/aboutData";
-import { frontendSkills, backendSkills } from "../../data/skillsData";
+import { frontendSkills, backendSkills, designSkills } from "../../data/skillsData";
+import { certificates } from "../../data/certificatesData";
 import { softSkills } from "../../data/sidebarData";
 import { projects } from "../../data/projects";
 
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 9,
     color: C.text,
-    paddingTop: 22,
-    paddingBottom: 20,
+    paddingTop: 12,
+    paddingBottom: 10,
     paddingLeft: 26,
     paddingRight: 26,
   },
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingBottom: 7,
-    marginBottom: 8,
+    paddingBottom: 5,
+    marginBottom: 4,
     borderBottomColor: C.accent,
     borderBottomWidth: 1.5,
   },
@@ -76,8 +77,8 @@ const styles = StyleSheet.create({
     color: C.accent,
     textTransform: "uppercase",
     letterSpacing: 0.9,
-    marginBottom: 5,
-    marginTop: 10,
+    marginBottom: 3,
+    marginTop: 3.5,
     paddingBottom: 2,
     borderBottomColor: C.divider,
     borderBottomWidth: 0.5,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
 
   // EXPERIENCE
   expEntry: {
-    marginBottom: 7,
+    marginBottom: 3,
   },
   expTopRow: {
     flexDirection: "row",
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     fontSize: 7.5,
     color: C.muted,
     fontFamily: "Helvetica-Oblique",
-    marginBottom: 2,
+    marginBottom: 1,
   },
   expShortDesc: {
     fontSize: 7.5,
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
 
   // EDUCATION
   eduEntry: {
-    marginBottom: 5,
+    marginBottom: 2.5,
   },
   eduTopRow: {
     flexDirection: "row",
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
   eduSchool: {
     fontSize: 7.5,
     color: C.muted,
-    marginBottom: 2,
+    marginBottom: 1,
   },
   eduShortDesc: {
     fontSize: 7.5,
@@ -209,6 +210,20 @@ const styles = StyleSheet.create({
     fontSize: 7.5,
     color: C.muted,
     lineHeight: 1.45,
+  },
+
+  // CERTIFICATIONS
+  certRow: {
+    marginBottom: 2,
+  },
+  certText: {
+    fontSize: 7.5,
+    color: C.muted,
+    lineHeight: 1.4,
+  },
+  certTitle: {
+    fontFamily: "Helvetica-Bold",
+    color: C.text,
   },
 
   // SOFT SKILLS
@@ -256,7 +271,7 @@ const styles = StyleSheet.create({
 
   // PROJECTS
   projEntry: {
-    marginBottom: 5,
+    marginBottom: 3,
   },
   projTopRow: {
     flexDirection: "row",
@@ -285,11 +300,19 @@ const styles = StyleSheet.create({
     color: C.muted,
     lineHeight: 1.4,
   },
+  projTech: {
+    fontSize: 7,
+    color: C.accent,
+    lineHeight: 1.4,
+    marginTop: 1,
+  },
 });
 
 
 export default function CVDocument() {
-  const pdfProjects = projects.slice(3, 7);
+  // Newest 4 projects, newest first — stays correct when projects are added
+  const pdfProjects = [...projects.slice(-3)].reverse();
+  const githubSocial = socials.find((s) => s.iconAlt === "GitHub");
   const emailContact = contacts.find((c) => c.icon === "email");
   const websiteContact = contacts.find((c) => c.icon === "link");
   const phoneUk = contacts.find((c) => c.flagAlt === "Ukraine");
@@ -312,7 +335,7 @@ export default function CVDocument() {
           </View>
           <View style={styles.headerRight}>
             {emailContact && (
-              <Link src={emailContact.href} style={styles.contactLink}>
+              <Link src={`mailto:${emailContact.text}`} style={styles.contactLink}>
                 {emailContact.text}
               </Link>
             )}
@@ -333,11 +356,16 @@ export default function CVDocument() {
             <Link src="https://www.linkedin.com/in/vitalii-belevtsov/" style={styles.contactLink}>
               linkedin.com/in/vitalii-belevtsov
             </Link>
+            {githubSocial && (
+              <Link src={githubSocial.href} style={styles.contactLink}>
+                github.com/Belevtsov91
+              </Link>
+            )}
           </View>
         </View>
 
-        {/* ── ABOUT ──────────────────────────────────────── */}
-        <Text style={styles.sectionTitleFirst}>About Me</Text>
+        {/* ── SUMMARY (ATS-standard section name) ────────── */}
+        <Text style={styles.sectionTitleFirst}>Summary</Text>
         <Text style={styles.aboutIntro}>{about.modalDescription.intro}</Text>
 
         {/* ── EXPERIENCE ─────────────────────────────────── */}
@@ -349,7 +377,9 @@ export default function CVDocument() {
               <Text style={styles.expPeriod}>{exp.period}</Text>
             </View>
             <Text style={styles.expCompany}>{exp.company}</Text>
-            <Text style={styles.expShortDesc}>{exp.description}</Text>
+            {!exp.pdfCompact && (
+              <Text style={styles.expShortDesc}>{exp.description}</Text>
+            )}
           </View>
         ))}
 
@@ -365,6 +395,9 @@ export default function CVDocument() {
               </View>
             </View>
             <Text style={styles.projDesc}>{proj.description}</Text>
+            {proj.tech?.length > 0 && (
+              <Text style={styles.projTech}>{proj.tech.join(", ")}</Text>
+            )}
           </View>
         ))}
 
@@ -375,7 +408,13 @@ export default function CVDocument() {
             <View style={styles.skillGroup}>
               <Text style={styles.skillGroupLabel}>Frontend</Text>
               <Text style={styles.skillList}>
-                {frontendSkills.join(" · ")}
+                {frontendSkills.join(", ")}
+              </Text>
+            </View>
+            <View style={styles.skillGroup}>
+              <Text style={styles.skillGroupLabel}>Design</Text>
+              <Text style={styles.skillList}>
+                {designSkills.join(", ")}
               </Text>
             </View>
           </View>
@@ -383,7 +422,7 @@ export default function CVDocument() {
             <View style={styles.skillGroup}>
               <Text style={styles.skillGroupLabel}>Backend & Tools</Text>
               <Text style={styles.skillList}>
-                {backendSkills.join(" · ")}
+                {backendSkills.join(", ")}
               </Text>
             </View>
           </View>
@@ -404,8 +443,20 @@ export default function CVDocument() {
           </View>
         ))}
 
-        {/* ── SOFT SKILLS ────────────────────────────────── */}
-        <Text style={styles.sectionTitle}>Soft Skills</Text>
+        {/* ── CERTIFICATIONS ─────────────────────────────── */}
+        <Text style={styles.sectionTitle}>Certifications</Text>
+        {certificates.map((cert) => (
+          <View key={cert.id} style={styles.certRow}>
+            <Text style={styles.certText}>
+              <Text style={styles.certTitle}>{cert.title}</Text>
+              {` — ${cert.issuer}, ${cert.issued}`}
+              {cert.credentialId ? ` · ID ${cert.credentialId}` : ""}
+            </Text>
+          </View>
+        ))}
+
+        {/* ── SOFT SKILLS & LANGUAGES ────────────────────── */}
+        <Text style={styles.sectionTitle}>Soft Skills & Languages</Text>
         <View style={styles.softSkillsRow}>
           {softSkills.map((skill) => (
             <View key={skill} style={styles.softSkillItem}>
@@ -414,9 +465,6 @@ export default function CVDocument() {
             </View>
           ))}
         </View>
-
-        {/* ── LANGUAGES ──────────────────────────────────── */}
-        <Text style={styles.sectionTitle}>Languages</Text>
         <View style={styles.langRow}>
           {languages.map((lang) => (
             <View key={lang.name} style={styles.langEntry}>

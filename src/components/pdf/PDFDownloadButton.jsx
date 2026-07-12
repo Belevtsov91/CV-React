@@ -1,12 +1,12 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import CVDocument from "./CVDocument";
 
-export default function PDFDownloadButton() {
+export default function PDFDownloadButton({ className = "pdf-download-btn" }) {
   return (
     <PDFDownloadLink
       document={<CVDocument />}
       fileName="Vitalii_Belevtsov_CV.pdf"
-      className="pdf-download-btn"
+      className={className}
       aria-label="Download CV as PDF"
     >
       {({ loading }) => (

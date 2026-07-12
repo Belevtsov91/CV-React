@@ -5,17 +5,12 @@ import SectionHeading from "../shared/SectionHeading";
 
 export default function EducationSection() {
   const [selectedEducationId, setSelectedEducationId] = useState(null);
-  const modalEnabledEducationIds = [
-    "goit-fullstack-2024",
-    "beetroot-frontend-2022",
-    "ntu-khpi-ee-2009",
-  ];
+
+  // An item gets a modal as soon as it has modal content — new entries
+  // in educationData.js work automatically, no hardcoded id list.
+  const hasModal = (item) => Boolean(item.descriptionModal);
 
   const openEducationModal = (educationId) => {
-    if (!modalEnabledEducationIds.includes(educationId)) {
-      return;
-    }
-
     setSelectedEducationId(educationId);
   };
 
@@ -28,14 +23,15 @@ export default function EducationSection() {
       <SectionHeading title="Education" titleClassName="edu-title" />
 
       <ul className="education-list">
-        {educationItems.map((item) => (
+        {educationItems.map((item, index) => (
           <li
             className="education-item"
             key={item.id}
             data-education-id={item.id}
             data-reveal
+            style={{ "--reveal-delay": `${Math.min(index * 70, 280)}ms` }}
           >
-            {modalEnabledEducationIds.includes(item.id) ? (
+            {hasModal(item) ? (
               <button
                 type="button"
                 className="educ-name educ-name-btn"

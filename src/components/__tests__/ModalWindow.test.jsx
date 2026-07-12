@@ -47,16 +47,27 @@ describe("ModalWindow", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onClose when overlay clicked", () => {
+  it("calls onClose when backdrop (dialog element) clicked", () => {
     const onClose = vi.fn();
     render(
       <ModalWindow isOpen={true} onClose={onClose} title="Test">
         <p>Content</p>
       </ModalWindow>
     );
-    const overlay = document.querySelector(".modal-overlay");
-    fireEvent.click(overlay, { target: overlay });
+    const dialog = document.querySelector("dialog.modal-window");
+    fireEvent.click(dialog, { target: dialog });
     expect(onClose).toHaveBeenCalled();
+  });
+
+  it("does not close when clicking inside modal content", () => {
+    const onClose = vi.fn();
+    render(
+      <ModalWindow isOpen={true} onClose={onClose} title="Test">
+        <p>Content</p>
+      </ModalWindow>
+    );
+    fireEvent.click(screen.getByText("Content"));
+    expect(onClose).not.toHaveBeenCalled();
   });
 
   it("locks body scroll when open and restores on close", () => {

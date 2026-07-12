@@ -19,8 +19,13 @@ export default function ExperienceSection() {
       <SectionHeading title="Experience" titleClassName="exp-title" />
 
       <ul className="exp-list">
-        {experiences.map((experience) => (
-          <li className="exp-item" key={experience.id} data-reveal>
+        {experiences.map((experience, index) => (
+          <li
+            className="exp-item"
+            key={experience.id}
+            data-reveal
+            style={{ "--reveal-delay": `${Math.min(index * 80, 320)}ms` }}
+          >
             <div className="container-exp-item">
               <div className="dot-titel">
                 <div className="cont-dot">

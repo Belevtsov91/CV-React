@@ -1,8 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from "react";
 import LinkIcon from "../shared/LinkIcon";
-import { contacts, languages, profile, socials, softSkills } from "../../data/sidebarData";
-
-const PDFDownloadButton = lazy(() => import("../pdf/PDFDownloadButton"));
+import { contacts, languages, socials, softSkills } from "../../data/sidebarData";
 
 function ContactIcon({ type }) {
   if (type === "email") {
@@ -63,154 +60,115 @@ function ContactIcon({ type }) {
 }
 
 export default function SidebarSection() {
-  const [showPDF, setShowPDF] = useState(false);
-
-  useEffect(() => {
-    if (document.readyState === "complete") {
-      setShowPDF(true);
-      return;
-    }
-    const handler = () => setShowPDF(true);
-    window.addEventListener("load", handler, { once: true });
-    return () => window.removeEventListener("load", handler);
-  }, []);
-
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo">
-        <img
-          src={profile.photo}
-          alt="CV Photo"
-          className="profile-photo"
-          width="64"
-          height="64"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <h1 className="title">{profile.name}</h1>
-        <h2 className="sub-title">{profile.subtitle}</h2>
-        <p className="looking">{profile.looking}</p>
-      </div>
+      <div className="sidebar-inner">
+        <div className="contacts" data-reveal>
+          <h3 className="contacts-title">Contacts</h3>
+          <ul className="contacts-list">
+            {contacts.map((contact) => (
+              <li
+                className="contacts-item"
+                key={`${contact.label}-${contact.text}`}
+              >
+                <div className="svg-contacts">
+                  <ContactIcon type={contact.icon} />
+                </div>
+                <div className="contacts-text">
+                  <span className="item-info">{contact.label}</span>
+                  <a
+                    className="contacts-link"
+                    href={contact.href}
+                    target={contact.external ? "_blank" : undefined}
+                    rel={contact.external ? "noopener noreferrer" : undefined}
+                  >
+                    {contact.flag && (
+                      <img
+                        src={contact.flag}
+                        alt={contact.flagAlt}
+                        width="14"
+                        height="10"
+                        className="contact-flag"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    {contact.text}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="contacts" data-reveal>
-        <h3 className="contacts-title">Contacts</h3>
-        <ul className="contacts-list">
-          {contacts.map((contact) => (
-            <li
-              className="contacts-item"
-              key={`${contact.label}-${contact.text}`}
-            >
-              <div className="svg-contacts">
-                <ContactIcon type={contact.icon} />
-              </div>
-              <div className="contacts-text">
-                <span className="item-info">{contact.label}</span>
-                <a
-                  className="contacts-link"
-                  href={contact.href}
-                  target={contact.external ? "_blank" : undefined}
-                  rel={contact.external ? "noopener noreferrer" : undefined}
-                >
-                  {contact.flag && (
-                    <img
-                      src={contact.flag}
-                      alt={contact.flagAlt}
-                      width="14"
-                      height="10"
-                      className="contact-flag"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  )}
-                  {contact.text}
-                </a>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="socials" data-reveal>
+          <h3 className="socials-title">Socials</h3>
+          <ul className="socials-list">
+            {socials.map((social) => (
+              <li className="socials-item" key={social.href}>
+                <div className="svg-socials" style={social.style}>
+                  <img
+                    className="img-socials"
+                    src={social.icon}
+                    alt={social.iconAlt}
+                    width="10"
+                    height="10"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="socials-text">
+                  <span className="socials-label">{social.label}</span>
+                  <a
+                    className="socials-link"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.text}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="socials" data-reveal>
-        <h3 className="socials-title">Socials</h3>
-        <ul className="socials-list">
-          {socials.map((social) => (
-            <li className="socials-item" key={social.href}>
-              <div className="svg-socials" style={social.style}>
-                <img
-                  className="img-socials"
-                  src={social.icon}
-                  alt={social.iconAlt}
-                  width="10"
-                  height="10"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="socials-text">
-                <span className="socials-label">{social.label}</span>
-                <a
-                  className="socials-link"
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {social.text}
-                </a>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="soft-skills" data-reveal>
+          <h3 className="soft-skills-title">Soft Skills</h3>
+          <ul className="soft-skills-list">
+            {softSkills.map((skill) => (
+              <li key={skill} className="soft-skills-item">
+                <div className="soft-skills-dot" />
+                <span className="soft-skills-name">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="soft-skills" data-reveal>
-        <h3 className="soft-skills-title">Soft Skills</h3>
-        <ul className="soft-skills-list">
-          {softSkills.map((skill) => (
-            <li key={skill} className="soft-skills-item">
-              <div className="soft-skills-dot" />
-              <span className="soft-skills-name">{skill}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="languages" data-reveal>
+          <h3 className="languages-title">Languages</h3>
+          <ul className="languages-list">
+            {languages.map((language) => (
+              <li className="languages-item" key={language.name}>
+                <div className="svg-languages">
+                  <img
+                    src={language.icon}
+                    alt={language.iconAlt}
+                    width="16"
+                    height="16"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="languages-text">
+                  <span className="language-name">{language.name}</span>
+                  <span className="language-level">{language.level}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      <div className="languages" data-reveal>
-        <h3 className="languages-title">Languages</h3>
-        <ul className="languages-list">
-          {languages.map((language) => (
-            <li className="languages-item" key={language.name}>
-              <div className="svg-languages">
-                <img
-                  src={language.icon}
-                  alt={language.iconAlt}
-                  width="16"
-                  height="16"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="languages-text">
-                <span className="language-name">{language.name}</span>
-                <span className="language-level">{language.level}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {showPDF ? (
-        <Suspense
-          fallback={
-            <span className="pdf-download-btn pdf-download-btn--loading">
-              Loading...
-            </span>
-          }
-        >
-          <PDFDownloadButton />
-        </Suspense>
-      ) : (
-        <span className="pdf-download-btn pdf-download-btn--loading" aria-hidden="true" />
-      )}
     </aside>
   );
 }

@@ -1,0 +1,283 @@
+@import url("../css/variables.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background:
+    radial-gradient(420px circle at 15% 0%, rgba(146, 81, 247, 0.16), transparent 65%),
+    radial-gradient(480px circle at 90% 30%, rgba(81, 108, 247, 0.12), transparent 65%),
+    var(--bg-base);
+  color: var(--text-secondary);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.tg-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 22px 18px 32px;
+}
+
+.tg-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.tg-avatar {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg-base), var(--bg-base)) padding-box,
+    conic-gradient(from 20deg, #9251f7, #516cf7, #c696fc, #9251f7) border-box;
+  box-shadow: 0 0 24px -6px var(--glow-primary);
+}
+
+.tg-title {
+  margin: 0;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.tg-subtitle {
+  margin: 3px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.tg-warn {
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(244, 206, 16, 0.35);
+  border-radius: 12px;
+  background: rgba(244, 206, 16, 0.07);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #e8d98a;
+}
+
+.tg-warn a {
+  color: var(--primary-light);
+  font-weight: 600;
+}
+
+.tg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tg-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tg-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(198, 150, 252, 0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.tg-input::placeholder {
+  color: var(--gray-dark);
+}
+
+.tg-input:focus {
+  border-color: rgba(198, 150, 252, 0.6);
+  background: rgba(146, 81, 247, 0.08);
+}
+
+.tg-input.is-error {
+  border-color: rgba(252, 129, 129, 0.6);
+}
+
+.tg-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238189a3' d='M6 8 1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.tg-select option {
+  background: #1a1230;
+  color: var(--text-primary);
+}
+
+.tg-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.tg-field-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 14px;
+}
+
+.tg-error {
+  font-size: 11px;
+  line-height: 1.3;
+  color: #fc8181;
+}
+
+.tg-counter {
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.tg-server-error {
+  padding: 11px 14px;
+  border: 1px solid rgba(252, 129, 129, 0.4);
+  border-radius: 12px;
+  background: rgba(252, 129, 129, 0.08);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #fda4a4;
+}
+
+.tg-submit {
+  margin-top: 4px;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #9251f7, #6d5df6);
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 22px -8px var(--glow-primary);
+}
+
+.tg-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -8px rgba(146, 81, 247, 0.7);
+}
+
+.tg-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ── Success state ── */
+.tg-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 12px 40px;
+}
+
+.tg-success-ring {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 222, 128, 0.1);
+  border: 2px solid rgba(74, 222, 128, 0.45);
+  box-shadow: 0 0 44px -8px rgba(74, 222, 128, 0.5);
+  animation: tg-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tg-pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tg-success-check {
+  width: 44px;
+  height: 44px;
+  stroke: #4ade80;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tg-success-check path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: tg-draw 0.5s 0.25s ease forwards;
+}
+
+@keyframes tg-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.tg-success-title {
+  margin: 22px 0 0;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.tg-success-sub {
+  margin: 10px 0 0;
+  max-width: 320px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg-success-ring,
+  .tg-success-check path {
+    animation: none;
+  }
+
+  .tg-success-check path {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,10 +1,12 @@
 @import "normalize.css";
 @import url("./css/variables.css");
 @import url("./css/aside.css");
+@import url("./css/Hero.css");
 @import url("./css/About.css");
 @import url("./css/Experience.css");
 @import url("./css/Latest_projects.css");
 @import url("./css/Education.css");
+@import url("./css/Certificates.css");
 @import url("./css/Skills.css");
 @import url("./css/Contact-form.css");
 @import url("./css/ServerLoader.css");
@@ -45,12 +47,43 @@
 body {
   font-family: var(--font-family);
   font-size: 14px;
-  color: #434455;
-  background-color: var(--gray-darkest);
+  color: var(--text-secondary);
+  background-color: var(--bg-base);
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
+/* ── Aurora background ── */
+.bg-aurora {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(640px circle at 12% 8%, rgba(146, 81, 247, 0.17), transparent 65%),
+    radial-gradient(720px circle at 88% 24%, rgba(81, 108, 247, 0.13), transparent 65%),
+    radial-gradient(560px circle at 45% 96%, rgba(146, 81, 247, 0.1), transparent 65%);
+  animation: aurora-drift 46s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(3%, -2.5%, 0) scale(1.06);
+  }
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 html,
 body {
@@ -62,6 +95,38 @@ body {
 html {
   scrollbar-gutter: stable;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* ── Scrollbar & selection ── */
+::selection {
+  background: rgba(146, 81, 247, 0.55);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(146, 81, 247, 0.35);
+  border-radius: 8px;
+  border: 2px solid var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(146, 81, 247, 0.6);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: rgba(146, 81, 247, 0.4) var(--bg-base);
+    scrollbar-width: thin;
+  }
 }
 
 #root {
@@ -74,49 +139,35 @@ html {
   gap: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  width: min(1280px, 100%);
-  max-width: 1280px;
+  width: min(1440px, 100%);
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-
 .reveal-on-scroll {
   opacity: 0;
-  transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 36px, 0) scale(0.98);
   transition:
-    opacity 0.6s ease,
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.65s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-on-scroll.leave-top {
-  transform: translate3d(0, -40px, 0);
+  transform: translate3d(0, -36px, 0) scale(0.98);
 }
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* ── Stagger delays ── */
-.exp-item:nth-child(2)           { transition-delay: 80ms; }
-.exp-item:nth-child(3)           { transition-delay: 160ms; }
-.exp-item:nth-child(4)           { transition-delay: 240ms; }
-
-.education-item:nth-child(2)     { transition-delay: 70ms; }
-.education-item:nth-child(3)     { transition-delay: 140ms; }
-
-.projects-item:nth-child(2)      { transition-delay: 50ms; }
-.projects-item:nth-child(3)      { transition-delay: 100ms; }
-.projects-item:nth-child(4)      { transition-delay: 150ms; }
-.projects-item:nth-child(5)      { transition-delay: 200ms; }
-.projects-item:nth-child(6)      { transition-delay: 250ms; }
-.projects-item:nth-child(7)      { transition-delay: 300ms; }
-
-.contact-social-link:nth-child(2) { transition-delay: 60ms; }
-.contact-social-link:nth-child(3) { transition-delay: 120ms; }
-.contact-social-link:nth-child(4) { transition-delay: 180ms; }
+/* ── Stagger: components set --reveal-delay from their item index,
+      so lists keep the cascade no matter how many items are added ── */
+.reveal-on-scroll {
+  transition-delay: var(--reveal-delay, 0ms);
+}
 
 ul {
   list-style-type: none;
@@ -156,8 +207,42 @@ a {
 }
 
 .main-content {
-  background-color: var(--gray-darkest);
-  padding: 32px 24px;
+  background-color: transparent;
+  padding: 40px 32px 48px;
+}
+
+@media (min-width: 1280px) {
+  .main-content {
+    padding: 48px 56px 56px;
+  }
+}
+
+/* ── Section headings ── */
+.cont-exp h2 {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-align: left;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.cont-exp h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--gradient-brand);
+}
+
+.cont-svg {
+  box-shadow: 0 0 14px var(--glow-primary);
 }
 
 .exp-list {
@@ -167,17 +252,23 @@ a {
 
 .projects-list,
 .education-list,
-.contact-socials {
+.contact-panel {
   margin-left: var(--section-indent-left);
 }
 
-.set-skills,
-.contact-socials {
-  padding-right: var(--section-indent-right);
+.skills-wall,
+.contact-panel {
+  padding-right: 0;
+  margin-right: var(--section-indent-right);
 }
 
-.set-skills {
-  padding-left: var(--section-indent-left);
+.skills-wall {
+  margin-left: var(--section-indent-left);
+}
+
+.projects-list,
+.education-list {
+  padding-right: var(--section-indent-right);
 }
 
 .projects-item,
@@ -196,11 +287,34 @@ a {
 .project-description,
 .looking,
 .development-subtitle {
-  color: var(--gray-lighter);
+  color: var(--text-secondary);
+}
+
+/* ── Glass card base ── */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .sidebar {
-  min-width: 220px;
+  min-width: 250px;
+}
+
+@media (min-width: 1280px) {
+  .sidebar {
+    min-width: 320px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -226,24 +340,13 @@ a {
     padding: 24px 12px;
   }
 
-  .title {
-    font-size: 22px;
-  }
-
-  .sub-title,
-  .exp-title,
-  .lt-pr-title,
-  .edu-title,
-  .skills-title,
-  .contact-title {
-    font-size: 17px;
-    line-height: 1.35;
+  .cont-exp h2 {
+    font-size: 20px;
   }
 
   .project-name,
   .education-degree,
   .job-title,
-  .set-skills-title,
   .contacts-link,
   .socials-link,
   .language-name {
@@ -258,8 +361,8 @@ a {
   .language-level,
   .education-year,
   .looking {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.45;
   }
 }
 
@@ -286,24 +389,13 @@ a {
     padding: 28px 16px;
   }
 
-  .title {
-    font-size: 24px;
-  }
-
-  .sub-title,
-  .exp-title,
-  .lt-pr-title,
-  .edu-title,
-  .skills-title,
-  .contact-title {
-    font-size: 18px;
-    line-height: 1.35;
+  .cont-exp h2 {
+    font-size: 21px;
   }
 
   .project-name,
   .education-degree,
   .job-title,
-  .set-skills-title,
   .contacts-link,
   .socials-link,
   .language-name {
@@ -318,12 +410,61 @@ a {
   .language-level,
   .education-year,
   .looking {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+}
+
+#projects,
+#contact,
+#about,
+#profile {
+  scroll-margin-top: 24px;
+}
+
+/* timeline lines draw themselves on scroll (progressive enhancement) */
+@supports (animation-timeline: view()) {
+  .about::before,
+  .experience::before,
+  .latest-projects::before,
+  .education::before,
+  .skills::before,
+  .contact-form::before {
+    transform-origin: top;
+    animation: timeline-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 55%;
+  }
+
+  @keyframes timeline-grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .about::before,
+  .experience::before,
+  .latest-projects::before,
+  .education::before,
+  .skills::before,
+  .contact-form::before {
+    animation: none;
+    transform: none;
+  }
+
+  .bg-aurora {
+    animation: none;
+  }
+
   .reveal-on-scroll,
   .reveal-on-scroll.leave-top,
   .reveal-on-scroll.is-visible {
