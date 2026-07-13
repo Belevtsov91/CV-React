@@ -281,3 +281,252 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
+/* ── Tabs ── */
+.tg-tabs {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.tg-tab {
+  flex: 1;
+  padding: 9px 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tg-tab.is-active {
+  background: rgba(var(--accent-rgb), 0.16);
+  color: var(--text-primary);
+}
+
+/* ── Debug Dash game ── */
+.tg-game {
+  min-height: 400px;
+}
+
+.tg-game-intro,
+.tg-game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 34px 12px 24px;
+}
+
+.tg-game-emoji {
+  font-size: 56px;
+  line-height: 1;
+  animation: bug-idle-bob 2s ease-in-out infinite;
+}
+
+@keyframes bug-idle-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+.tg-game-title {
+  margin: 12px 0 0;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--text-primary);
+}
+
+.tg-game-desc {
+  margin: 10px 0 0;
+  max-width: 320px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.tg-game-best {
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.tg-game-btn {
+  margin-top: 20px;
+  min-width: 170px;
+}
+
+/* HUD */
+.tg-game-hud {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.tg-game-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tg-game-stat--right {
+  align-items: flex-end;
+}
+
+.tg-game-stat span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tg-game-stat b {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.tg-game-stat b.is-low {
+  color: #fda4a4;
+}
+
+/* Grid */
+.tg-game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.tg-game-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+}
+
+.tg-bug {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  font-size: clamp(24px, 7.5vw, 36px);
+  line-height: 1;
+  cursor: pointer;
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.24),
+    rgba(var(--accent-rgb), 0.05)
+  );
+  box-shadow: 0 0 18px -2px rgba(var(--accent-rgb), 0.6);
+  animation: bug-pop 0.16s ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tg-bug.is-gold {
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-soft-rgb), 0.32),
+    rgba(var(--accent-soft-rgb), 0.08)
+  );
+  box-shadow: 0 0 24px 0 rgba(var(--accent-soft-rgb), 0.75);
+  animation: bug-pop 0.16s ease-out,
+    bug-gold-pulse 0.8s ease-in-out 0.16s infinite;
+}
+
+.tg-bug.is-dead {
+  animation: bug-squash 0.26s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes bug-pop {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bug-gold-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.13);
+  }
+}
+
+@keyframes bug-squash {
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Over screen */
+.tg-game-over-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tg-game-score-big {
+  margin-top: 6px;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 66px;
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 32px rgba(var(--accent-rgb), 0.5);
+}
+
+.tg-game-newbest {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg-game-emoji,
+  .tg-bug,
+  .tg-bug.is-gold {
+    animation: none;
+  }
+
+  .tg-bug.is-dead {
+    animation: none;
+    opacity: 0;
+  }
+}

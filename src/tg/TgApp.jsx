@@ -5,6 +5,7 @@ import {
   MESSAGE_MIN,
   MESSAGE_MAX,
 } from "@/hooks/useContactForm";
+import TgGame from "./TgGame";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000";
 const BOT_URL = "https://t.me/belevtsov_cv_bot";
@@ -42,6 +43,7 @@ export default function TgApp() {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [serverError, setServerError] = useState("");
+  const [view, setView] = useState("form"); // form | game
 
   const fieldsRef = useRef(fields);
   fieldsRef.current = fields;
@@ -109,15 +111,19 @@ export default function TgApp() {
     [],
   );
 
-  // Native Telegram MainButton drives the submit
+  // Native Telegram MainButton drives the submit — only on the form view
   useEffect(() => {
     if (!tg?.MainButton || !insideTelegram) return undefined;
     const btn = tg.MainButton;
+    if (view !== "form" || status === "success") {
+      btn.hide();
+      return undefined;
+    }
     btn.setParams({ text: "SEND MESSAGE", color: "#9251f7", text_color: "#ffffff" });
     btn.show();
     btn.onClick(submit);
     return () => btn.offClick(submit);
-  }, [submit, insideTelegram]);
+  }, [submit, insideTelegram, view, status]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -167,6 +173,31 @@ export default function TgApp() {
         </div>
       </header>
 
+      <div className="tg-tabs" role="tablist" aria-label="View">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={view === "form"}
+          className={`tg-tab${view === "form" ? " is-active" : ""}`}
+          onClick={() => setView("form")}
+        >
+          ✉️ Message
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={view === "game"}
+          className={`tg-tab${view === "game" ? " is-active" : ""}`}
+          onClick={() => setView("game")}
+        >
+          🎮 Debug Dash
+        </button>
+      </div>
+
+      {view === "game" ? (
+        <TgGame />
+      ) : (
+        <>
       {!insideTelegram && (
         <div className="tg-warn">
           This form is signed by Telegram and only works inside the app.{" "}
@@ -263,6 +294,8 @@ export default function TgApp() {
           </button>
         )}
       </form>
+        </>
+      )}
     </div>
   );
 }
