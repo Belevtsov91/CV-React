@@ -60,9 +60,9 @@ body {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(640px circle at 12% 8%, rgba(146, 81, 247, 0.17), transparent 65%),
-    radial-gradient(720px circle at 88% 24%, rgba(81, 108, 247, 0.13), transparent 65%),
-    radial-gradient(560px circle at 45% 96%, rgba(146, 81, 247, 0.1), transparent 65%);
+    radial-gradient(640px circle at 12% 8%, rgba(var(--accent-rgb), 0.17), transparent 65%),
+    radial-gradient(720px circle at 88% 24%, rgba(var(--accent-alt-rgb), 0.13), transparent 65%),
+    radial-gradient(560px circle at 45% 96%, rgba(var(--accent-rgb), 0.1), transparent 65%);
   animation: aurora-drift 46s ease-in-out infinite alternate;
   will-change: transform;
 }
@@ -100,7 +100,7 @@ html {
 
 /* ── Scrollbar & selection ── */
 ::selection {
-  background: rgba(146, 81, 247, 0.55);
+  background: rgba(var(--accent-rgb), 0.55);
   color: #fff;
 }
 
@@ -113,18 +113,18 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(146, 81, 247, 0.35);
+  background: rgba(var(--accent-rgb), 0.35);
   border-radius: 8px;
   border: 2px solid var(--bg-base);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(146, 81, 247, 0.6);
+  background: rgba(var(--accent-rgb), 0.6);
 }
 
 @supports not selector(::-webkit-scrollbar) {
   html {
-    scrollbar-color: rgba(146, 81, 247, 0.4) var(--bg-base);
+    scrollbar-color: rgba(var(--accent-rgb), 0.4) var(--bg-base);
     scrollbar-width: thin;
   }
 }
@@ -288,6 +288,49 @@ a {
 .looking,
 .development-subtitle {
   color: var(--text-secondary);
+}
+
+/* ── Theme switcher ── */
+.theme-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  background: rgba(10, 8, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-dot {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dot-a), var(--dot-b));
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-dot:hover {
+  transform: scale(1.18);
+}
+
+.theme-dot.is-active {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 12px var(--dot-a);
+  transform: scale(1.12);
+}
+
+.theme-dot:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
 }
 
 /* ── Glass card base ── */

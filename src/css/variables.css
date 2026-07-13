@@ -35,25 +35,95 @@
   --second-family: "Outfit", sans-serif;
 }
 
+/* ── Theme tokens: default = Violet Aurora ── */
 :root {
+  --accent: #9251f7;
+  --accent-strong: #6d5df6;
+  --accent-soft: #c696fc;
+  --accent-alt: #516cf7;
+  --accent-rgb: 146, 81, 247;
+  --accent-soft-rgb: 198, 150, 252;
+  --accent-alt-rgb: 81, 108, 247;
+  --accent-contrast: #fff;
+
   --bg-base: #0a0714;
   --text-primary: #f2f0fa;
   --text-secondary: #b8bdd2;
   --text-muted: #8189a3;
   --glass-bg: rgba(255, 255, 255, 0.035);
-  --glass-bg-hover: rgba(146, 81, 247, 0.08);
+  --glass-bg-hover: rgba(var(--accent-rgb), 0.08);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(198, 150, 252, 0.45);
-  --gradient-brand: linear-gradient(90deg, #c696fc 0%, #9251f7 45%, #516cf7 100%);
-  --glow-primary: rgba(146, 81, 247, 0.35);
-  --glow-secondary: rgba(81, 108, 247, 0.28);
+  --glass-border-hover: rgba(var(--accent-soft-rgb), 0.45);
+  --gradient-brand: linear-gradient(90deg, var(--accent-soft) 0%, var(--accent) 45%, var(--accent-alt) 100%);
+  --glow-primary: rgba(var(--accent-rgb), 0.35);
+  --glow-secondary: rgba(var(--accent-alt-rgb), 0.28);
   --timeline-line: linear-gradient(
     180deg,
-    rgba(146, 81, 247, 0) 0%,
-    rgba(146, 81, 247, 0.45) 12%,
-    rgba(146, 81, 247, 0.45) 88%,
-    rgba(146, 81, 247, 0) 100%
+    rgba(var(--accent-rgb), 0) 0%,
+    rgba(var(--accent-rgb), 0.45) 12%,
+    rgba(var(--accent-rgb), 0.45) 88%,
+    rgba(var(--accent-rgb), 0) 100%
   );
+}
+
+/* ── Theme: Acid Lime (Warm Lime #CFFF74 × Olive Ink #2F3A1D) ── */
+[data-theme="lime"] {
+  --accent: #cfff74;
+  --accent-strong: #a8e73b;
+  --accent-soft: #e4ffb0;
+  --accent-alt: #8fd14f;
+  --accent-rgb: 207, 255, 116;
+  --accent-soft-rgb: 228, 255, 176;
+  --accent-alt-rgb: 143, 209, 79;
+  --accent-contrast: #1a2205;
+
+  --bg-base: #0c1106;
+  --text-primary: #f2f8e4;
+  --text-secondary: #b6c2a0;
+  --text-muted: #7d8a68;
+
+  --primary-darker: #2f3a1d;
+  --primary-dark: #4a5c2a;
+  --primary-default: #cfff74;
+  --primary-light: #e4ffb0;
+  --primary-lighter: #f1ffd6;
+  --primary-lightest: #f9ffef;
+  --secondary-darker: #232d12;
+  --secondary-dark: #33420f;
+  --secondary-default: #8fd14f;
+  --secondary-light: #b9e07f;
+  --secondary-lighter: #ddf3bd;
+  --secondary-lightest: #f4fbe8;
+}
+
+/* ── Theme: Ember (Burnt Orange #FC6C26 × Vanilla #FFF4D6) ── */
+[data-theme="ember"] {
+  --accent: #fc6c26;
+  --accent-strong: #e5581a;
+  --accent-soft: #ffa25e;
+  --accent-alt: #f7a03c;
+  --accent-rgb: 252, 108, 38;
+  --accent-soft-rgb: 255, 162, 94;
+  --accent-alt-rgb: 247, 160, 60;
+  --accent-contrast: #fff;
+
+  --bg-base: #140a04;
+  --text-primary: #fff4d6;
+  --text-secondary: #d3bda6;
+  --text-muted: #99836c;
+
+  --primary-darker: #4a2410;
+  --primary-dark: #7a3a15;
+  --primary-default: #fc6c26;
+  --primary-light: #ffa25e;
+  --primary-lighter: #ffc79b;
+  --primary-lightest: #fff0e2;
+  --secondary-darker: #3a1c0a;
+  --secondary-dark: #4a2410;
+  --secondary-default: #f7a03c;
+  --secondary-light: #ffb877;
+  --secondary-lighter: #ffdcbd;
+  --secondary-lightest: #fff4d6;
 }
 
 @property --card-angle {

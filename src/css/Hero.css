@@ -126,15 +126,15 @@
 }
 
 .hero-cta--primary {
-  background: linear-gradient(90deg, #9251f7, #6d5df6);
-  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  color: var(--accent-contrast);
   box-shadow: 0 4px 22px -8px var(--glow-primary);
 }
 
 .hero-cta--primary:hover,
 .hero-cta--primary:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 10px 34px -8px rgba(146, 81, 247, 0.75);
+  box-shadow: 0 10px 34px -8px rgba(var(--accent-rgb), 0.75);
 }
 
 .hero-cta--loading {
@@ -191,7 +191,7 @@
   height: 216px;
   padding: 5px;
   border-radius: 50%;
-  background: conic-gradient(from 20deg, #9251f7, #516cf7, #c696fc, #9251f7);
+  background: conic-gradient(from 20deg, var(--accent), var(--accent-alt), var(--accent-soft), var(--accent));
   box-shadow: 0 0 56px -8px var(--glow-primary);
 }
 
@@ -212,8 +212,8 @@
   gap: 2px;
   padding: 11px 16px;
   border-radius: 12px;
-  background: rgba(20, 14, 38, 0.9);
-  border: 1px solid rgba(198, 150, 252, 0.35);
+  background: rgba(9, 8, 12, 0.82);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.35);
   backdrop-filter: blur(8px);
   transition:
     transform 0.25s ease,
@@ -224,8 +224,8 @@
 .hero-latest-chip:hover,
 .hero-latest-chip:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(198, 150, 252, 0.65);
-  box-shadow: 0 12px 32px -12px rgba(146, 81, 247, 0.6);
+  border-color: rgba(var(--accent-soft-rgb), 0.65);
+  box-shadow: 0 12px 32px -12px rgba(var(--accent-rgb), 0.6);
 }
 
 .hero-latest-chip:focus-visible {

@@ -21,7 +21,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(146, 81, 247, 0.15);
+  background: rgba(var(--accent-rgb), 0.15);
 }
 
 /* moving wave */
@@ -35,9 +35,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(146, 81, 247, 0.5) 30%,
-    #c696fc 50%,
-    rgba(146, 81, 247, 0.5) 70%,
+    rgba(var(--accent-rgb), 0.5) 30%,
+    var(--accent-soft) 50%,
+    rgba(var(--accent-rgb), 0.5) 70%,
     transparent 100%
   );
   animation: server-loader-wave 1.6s ease-in-out infinite;

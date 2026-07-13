@@ -5,12 +5,12 @@ dialog.modal-window {
   padding: 0;
   width: min(720px, calc(100vw - 32px));
   max-height: min(85vh, 85dvh);
-  border: 1px solid rgba(198, 150, 252, 0.22);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.22);
   border-radius: 20px;
   background:
     linear-gradient(
       165deg,
-      rgba(146, 81, 247, 0.12) 0%,
+      rgba(var(--accent-rgb), 0.12) 0%,
       rgba(15, 10, 30, 0.99) 42%,
       rgba(20, 14, 38, 0.99) 100%
     ),
@@ -28,12 +28,12 @@ dialog.modal-window::backdrop {
   background:
     radial-gradient(
       circle at 20% 8%,
-      rgba(146, 81, 247, 0.16) 0%,
+      rgba(var(--accent-rgb), 0.16) 0%,
       transparent 45%
     ),
     radial-gradient(
       circle at 86% 88%,
-      rgba(81, 108, 247, 0.14) 0%,
+      rgba(var(--accent-alt-rgb), 0.14) 0%,
       transparent 46%
     ),
     rgba(8, 5, 16, 0.62);
@@ -89,9 +89,9 @@ dialog.modal-window::backdrop {
   right: 14px;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(198, 150, 252, 0.3);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.3);
   border-radius: 10px;
-  background: rgba(146, 81, 247, 0.1);
+  background: rgba(var(--accent-rgb), 0.1);
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -122,7 +122,7 @@ dialog.modal-window::backdrop {
 .modal-close-btn:hover,
 .modal-close-btn:focus-visible {
   border-color: var(--primary-light);
-  background: rgba(146, 81, 247, 0.28);
+  background: rgba(var(--accent-rgb), 0.28);
   transform: scale(1.05) rotate(90deg);
 }
 
@@ -151,7 +151,7 @@ dialog.modal-window::backdrop {
   width: min(100%, 560px);
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(198, 150, 252, 0.28);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.28);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -161,8 +161,8 @@ dialog.modal-window::backdrop {
 .certificate-preview-link:hover,
 .certificate-preview-link:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(198, 150, 252, 0.6);
-  box-shadow: 0 16px 44px -16px rgba(146, 81, 247, 0.55);
+  border-color: rgba(var(--accent-soft-rgb), 0.6);
+  box-shadow: 0 16px 44px -16px rgba(var(--accent-rgb), 0.55);
 }
 
 .certificate-preview-link:focus-visible {
@@ -183,7 +183,7 @@ dialog.modal-window::backdrop {
   padding: 7px 14px;
   border-radius: 9px;
   background: rgba(15, 10, 30, 0.85);
-  border: 1px solid rgba(198, 150, 252, 0.4);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.4);
   color: var(--primary-lighter);
   font-family: var(--font-family);
   font-weight: 600;
@@ -197,8 +197,8 @@ dialog.modal-window::backdrop {
   gap: 6px;
   padding: 8px 16px;
   border-radius: 10px;
-  background: rgba(146, 81, 247, 0.14);
-  border: 1px solid rgba(198, 150, 252, 0.35);
+  background: rgba(var(--accent-rgb), 0.14);
+  border: 1px solid rgba(var(--accent-soft-rgb), 0.35);
   color: var(--primary-lighter);
   font-family: var(--font-family);
   font-weight: 600;
@@ -212,9 +212,9 @@ dialog.modal-window::backdrop {
 
 .certificate-download-link:hover,
 .certificate-download-link:focus-visible {
-  background: rgba(146, 81, 247, 0.26);
-  border-color: rgba(198, 150, 252, 0.65);
-  color: #fff;
+  background: rgba(var(--accent-rgb), 0.26);
+  border-color: rgba(var(--accent-soft-rgb), 0.65);
+  color: var(--text-primary);
 }
 
 @media (max-width: 767px) {
