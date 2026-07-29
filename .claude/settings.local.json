@@ -35,7 +35,27 @@
       "mcp__Claude_in_Chrome__javascript_tool",
       "mcp__Claude_in_Chrome__browser_batch",
       "PowerShell($url = [System.Text.Encoding]::UTF8.GetString\\([Convert]::FromBase64String\\(\"aHR0cHM6Ly9tZWRpYS5saWNkbi5jb20vZG1zL2ltYWdlL3YyL0Q0RTBCQVFFdy0xUzhqaWN0VEEvY29tcGFueS1sb2dvXzEwMF8xMDAvQjRFWmRGcFpCY0gwQVEtLzAvMTc0OTIyMDE2ODE3Ni9lZnNldF9sb2dvP2U9MTc4NTM2OTYwMCZ2PWJldGEmdD1GYmxoZGRoYzdROGdaZG91RkxQTURKb3BubDZsM1RyZWdzc2ZpcG1BVUM0\"\\)\\); Invoke-WebRequest -Uri $url -OutFile \"logo-efset-raw.png\"; node -e \"import\\('sharp'\\).then\\(async s => { const r = await s.default\\('logo-efset-raw.png'\\).webp\\({ quality: 90 }\\).toFile\\('public/img/efset.webp'\\); console.log\\('efset:', r.width + 'x' + r.height, Math.round\\(r.size/1024\\) + 'KB'\\); }\\)\"; Remove-Item \"logo-efset-raw.png\" -Force)",
-      "PowerShell($body = @{ name = \"Vitalii \\(Brevo test\\)\"; email = \"vitaliybelevcov@gmail.com\"; subject = \"Brevo delivery test\"; message = \"Test message sent by Claude to verify Brevo email delivery end-to-end. If you can read this in your inbox - notification email works. Check for the confirmation email too.\" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri \"https://back-cv-react.onrender.com/api/messages\" -Method POST -ContentType \"application/json\" -Body $body -TimeoutSec 60 -UseBasicParsing; \"status: $\\($r.StatusCode\\)\"; $r.Content } catch { \"status: $\\($_.Exception.Response.StatusCode.value__\\)\"; $reader = New-Object System.IO.StreamReader\\($_.Exception.Response.GetResponseStream\\(\\)\\); $reader.ReadToEnd\\(\\) })"
+      "PowerShell($body = @{ name = \"Vitalii \\(Brevo test\\)\"; email = \"vitaliybelevcov@gmail.com\"; subject = \"Brevo delivery test\"; message = \"Test message sent by Claude to verify Brevo email delivery end-to-end. If you can read this in your inbox - notification email works. Check for the confirmation email too.\" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri \"https://back-cv-react.onrender.com/api/messages\" -Method POST -ContentType \"application/json\" -Body $body -TimeoutSec 60 -UseBasicParsing; \"status: $\\($r.StatusCode\\)\"; $r.Content } catch { \"status: $\\($_.Exception.Response.StatusCode.value__\\)\"; $reader = New-Object System.IO.StreamReader\\($_.Exception.Response.GetResponseStream\\(\\)\\); $reader.ReadToEnd\\(\\) })",
+      "PowerShell(Set-Location \"C:\\\\Disk.D\\\\projectForFun\\\\KinderGardenFlow\\\\frontend\"; npx eslint src --max-warnings=0 2>&1 | Select-Object -Last 3; Write-Host \"=== lint exit: $LASTEXITCODE ===\")",
+      "Bash(pdftotext \"/c/Users/vital/Downloads/Belevtsov.pdf\" -)",
+      "Bash(pdfinfo \"/c/Users/vital/Downloads/Belevtsov.pdf\")",
+      "Read(//mingw64/**)",
+      "Bash(pdftotext -raw \"/c/Users/vital/Downloads/Belevtsov.pdf\" -)",
+      "Bash(python -c \"import fitz; print\\('HAS_PYMUPDF'\\)\")",
+      "Bash(magick --version)",
+      "Bash(python -m http.server 8791)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8791/img/Belevtsov.pdf)",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp: YES'\\)}catch\\(e\\){console.log\\('sharp: NO'\\)}; try{require.resolve\\('pdfjs-dist'\\);console.log\\('pdfjs-dist: YES'\\)}catch\\(e\\){console.log\\('pdfjs-dist: NO'\\)}; try{require.resolve\\('canvas'\\);console.log\\('canvas: YES'\\)}catch\\(e\\){console.log\\('canvas: NO'\\)}\")",
+      "Bash(node -e ' *)",
+      "Read(//c/Users/vital/AppData/Local/Temp/claude/C--Disk-D-CV-React/ac6043c7-099c-49c8-9a90-e98aafc62ae7/scratchpad/**)",
+      "Bash(npm init *)",
+      "Bash(npm i *)",
+      "Read(//tmp/**)",
+      "Bash(cd \"/c/Disk.D/CV-React\")",
+      "Bash(mv \"public/img/Belevtsov.pdf\" \"public/img/diploma-ai-technologies-2026.pdf\")",
+      "Bash(echo \"renamed PDF -> diploma-ai-technologies-2026.pdf\")",
+      "Bash(ls -la public/img/diploma-ai-technologies-2026.* public/img/ai-technologies-2026.webp)",
+      "Bash(pkill -f \"http.server 8791\")"
     ]
   }
 }

@@ -1,5 +1,19 @@
 export const certificates = [
   {
+    id: "ai-technologies-2026",
+    title: "AI Technologies 2026 — Project Competition",
+    issuer: "Ivan Franko National University of Lviv",
+    issued: "Jul 2026",
+    logo: "/img/ai-technologies-2026.webp",
+    logoAlt: "AI Technologies 2026 emblem",
+    preview: "/img/diploma-ai-technologies-2026.webp",
+    previewWidth: 1400,
+    previewHeight: 990,
+    file: "/img/diploma-ai-technologies-2026.pdf",
+    description:
+      "Diploma for participating in the AI Technologies 2026 project competition at Ivan Franko National University of Lviv, held under the Ministry of Digital Transformation and the Ministry of Education and Science of Ukraine. Presented “Law Analysis” — a GovTech platform that structures Ukrainian legislation into a searchable knowledge base with an AI assistant.",
+  },
+  {
     id: "bootcamp-2026-finalist",
     title: "Boot Camp 2026 — Finalist",
     issuer: "Kharkiv IT Cluster",

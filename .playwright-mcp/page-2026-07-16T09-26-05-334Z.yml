@@ -1,0 +1,342 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "KinderFlow AI" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e11]:
+          - link "Для кого" [ref=e12] [cursor=pointer]:
+            - /url: "#for-whom"
+          - link "Возможности" [ref=e13] [cursor=pointer]:
+            - /url: "#features"
+          - link "AI" [ref=e14] [cursor=pointer]:
+            - /url: "#ai"
+          - link "Тарифы" [ref=e15] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "Вопросы" [ref=e16] [cursor=pointer]:
+            - /url: "#faq"
+        - generic [ref=e17]:
+          - button "ru" [ref=e18] [cursor=pointer]
+          - button "Toggle theme" [ref=e20] [cursor=pointer]
+          - generic [ref=e21]:
+            - link "Войти" [ref=e22] [cursor=pointer]:
+              - /url: /auth
+            - link "Начать" [ref=e23] [cursor=pointer]:
+              - /url: /auth?mode=signup
+    - main [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: AI-помощники для каждой роли · Новое
+          - heading "Тёплая современная ОС для садов и центров" [level=1] [ref=e33]: Тёплая современная ОС длясадов и центров
+          - paragraph [ref=e34]: KinderFlow AI объединяет родителей, воспитателей, администрацию и бухгалтерию в одном спокойном пространстве — умные меню, алерты по аллергенам, голосовые отчёты и многоязычные уведомления.
+          - generic [ref=e35]:
+            - link "Начать 30-дневный триал" [ref=e36] [cursor=pointer]:
+              - /url: /auth
+            - link "Демо за 90 секунд" [ref=e37] [cursor=pointer]:
+              - /url: "#for-whom"
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - generic [ref=e40]: 12k+
+              - generic [ref=e41]: детей в системе
+            - generic [ref=e42]:
+              - generic [ref=e43]: 30+
+              - generic [ref=e44]: садов подключены
+            - generic [ref=e45]:
+              - generic [ref=e46]: "4"
+              - generic [ref=e47]: языка
+        - generic [ref=e49]:
+          - generic [ref=e53]:
+            - generic [ref=e54]: kinderflow · Butterfly group · Today
+            - generic [ref=e60]:
+              - generic [ref=e61]: M
+              - generic [ref=e62]:
+                - generic [ref=e63]: Matvey · 4 y.o.
+                - generic [ref=e64]: "Present today · Group lead: Anna"
+              - generic [ref=e65]: no dairy
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - generic [ref=e68]: Lunch
+                - generic [ref=e72]: ½
+              - generic [ref=e73]:
+                - generic [ref=e74]: Nap
+                - generic [ref=e77]: 1:00–2:30
+              - generic [ref=e78]:
+                - generic [ref=e79]: Mood
+                - generic [ref=e83]: Great
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - generic [ref=e86]: Today's menu
+                - generic [ref=e87]: auto-translated · RU → EN
+              - list [ref=e88]:
+                - listitem [ref=e89]:
+                  - generic [ref=e90]: Breakfast
+                  - generic [ref=e91]: Buckwheat porridge
+                - listitem [ref=e93]:
+                  - generic [ref=e94]: Lunch
+                  - generic [ref=e95]: Chicken soup, mashed potatoes
+                - listitem [ref=e97]:
+                  - generic [ref=e98]: Snack
+                  - generic [ref=e99]:
+                    - generic [ref=e100]:
+                      - generic [ref=e101]: Yogurt & fresh fruit
+                      - generic [ref=e102]: Contains milk
+                    - generic [ref=e105]: "↳ Alt: Pear purée offered"
+            - generic [ref=e111]:
+              - generic [ref=e112]: Voice report ready
+              - generic [ref=e113]: “Matvey ate half of lunch, slept 1:00–2:30, mood good, mild cough after nap.”
+            - generic [ref=e114]: 4 glasses of water
+            - generic [ref=e118]: Trip on Fri confirmed
+          - generic [ref=e123]: Anna · sent 2 min ago
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - generic [ref=e130]: For every role
+          - heading "One product, four calm doors in." [level=2] [ref=e131]
+          - paragraph [ref=e132]: Each role sees only what matters to them — no clutter, no training required.
+        - generic [ref=e133]:
+          - article [ref=e134]:
+            - generic [ref=e136]:
+              - heading "Parents" [level=3] [ref=e141]
+              - list [ref=e142]:
+                - listitem [ref=e143]:
+                  - generic [ref=e145]: "Live daily reports: meals, naps, mood"
+                - listitem [ref=e146]:
+                  - generic [ref=e148]: Menu with allergen alerts, in your language
+                - listitem [ref=e149]:
+                  - generic [ref=e151]: Chat with teachers, sign documents, pay
+          - article [ref=e152]:
+            - generic [ref=e154]:
+              - heading "Teachers" [level=3] [ref=e159]
+              - list [ref=e160]:
+                - listitem [ref=e161]:
+                  - generic [ref=e163]: Fill a 20-child group report in under 7 min
+                - listitem [ref=e164]:
+                  - generic [ref=e166]: Voice input — AI structures the notes
+                - listitem [ref=e167]:
+                  - generic [ref=e169]: Attendance, incidents, photos in one flow
+          - article [ref=e170]:
+            - generic [ref=e172]:
+              - heading "Administration" [level=3] [ref=e179]
+              - list [ref=e180]:
+                - listitem [ref=e181]:
+                  - generic [ref=e183]: Kindergarten, groups, staff and analytics
+                - listitem [ref=e184]:
+                  - generic [ref=e186]: Menu OCR + auto-translation to family languages
+                - listitem [ref=e187]:
+                  - generic [ref=e189]: Broadcast announcements & schedule trips
+          - article [ref=e190]:
+            - generic [ref=e192]:
+              - heading "Finance" [level=3] [ref=e197]
+              - list [ref=e198]:
+                - listitem [ref=e199]:
+                  - generic [ref=e201]: Invoices, subscriptions & subsidies in one view
+                - listitem [ref=e202]:
+                  - generic [ref=e204]: Auto-charge for extras (clubs, meals, trips)
+                - listitem [ref=e205]:
+                  - generic [ref=e207]: Export reports for accounting & tax
+      - generic [ref=e209]:
+        - generic [ref=e210]:
+          - generic [ref=e211]: Everything in one place
+          - heading "Built for the reality of childcare." [level=2] [ref=e212]
+          - paragraph [ref=e213]: No more chats scattered across WhatsApp, paper menus and spreadsheets.
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - heading "Daily reports" [level=3] [ref=e220]
+            - paragraph [ref=e221]: Meals, naps, mood, hydration and observations — with photos and AI-drafted summaries.
+          - generic [ref=e222]:
+            - heading "Smart menu" [level=3] [ref=e227]
+            - paragraph [ref=e228]: Upload a photo, PDF or type it in. OCR + AI structures dishes, ingredients and allergens.
+          - generic [ref=e229]:
+            - heading "Allergen alerts" [level=3] [ref=e234]
+            - paragraph [ref=e235]: Each parent sees warnings tailored to their child, with safe alternatives highlighted.
+          - generic [ref=e236]:
+            - heading "Voice input" [level=3] [ref=e241]
+            - paragraph [ref=e242]: Teachers speak, AI structures. Confirm the fields and it's saved for the whole group.
+          - generic [ref=e243]:
+            - heading "Auto-translation" [level=3] [ref=e249]
+            - paragraph [ref=e250]: Menus, announcements and reports translated for every family — carefully for medical terms.
+          - generic [ref=e251]:
+            - heading "Notifications" [level=3] [ref=e256]
+            - paragraph [ref=e257]: Push, email and in-app — quiet hours honored, delivery status visible to admins.
+          - generic [ref=e258]:
+            - heading "Payments & billing" [level=3] [ref=e262]
+            - paragraph [ref=e263]: Tuition, extras, clubs and trips. Auto-charge, receipts and finance-ready exports.
+          - generic [ref=e264]:
+            - heading "Attendance & incidents" [level=3] [ref=e269]
+            - paragraph [ref=e270]: Check-in, pickup, meal photos and clear incident reports parents can acknowledge.
+        - generic [ref=e271]: Available in English, Русский, Українська, Română
+      - generic [ref=e282]:
+        - generic [ref=e283]:
+          - generic [ref=e284]: AI where it truly helps
+          - heading "Quiet AI that saves the last hour of the day." [level=2] [ref=e288]
+          - paragraph [ref=e289]: We never diagnose. We never replace a teacher's judgment. AI drafts, translates and structures — a human always confirms before it reaches a parent.
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - generic [ref=e292]: ✓
+              - text: Original menu photo always kept
+            - listitem [ref=e293]:
+              - generic [ref=e294]: ✓
+              - text: Every AI suggestion is editable
+            - listitem [ref=e295]:
+              - generic [ref=e296]: ✓
+              - text: Parents only see what their role allows
+        - generic [ref=e297]:
+          - generic [ref=e302]:
+            - heading "Voice → structured report" [level=3] [ref=e303]
+            - paragraph [ref=e304]: “Matvey ate half of lunch, slept 1:00–2:30, mood good, mild cough after nap.”
+            - paragraph [ref=e305]: AI fills the fields. Teacher confirms in one tap.
+          - generic [ref=e312]:
+            - heading "Menu OCR from a photo" [level=3] [ref=e313]
+            - paragraph [ref=e314]: Snap the paper menu on the wall.
+            - paragraph [ref=e315]: We extract dishes, ingredients and allergens — and translate.
+          - generic [ref=e321]:
+            - heading "Personalized allergen alerts" [level=3] [ref=e322]
+            - paragraph [ref=e323]: Today's snack contains milk.
+            - paragraph [ref=e324]: Each family sees only what matters to their child, with alternatives.
+          - generic [ref=e332]:
+            - heading "Careful medical translation" [level=3] [ref=e333]
+            - paragraph [ref=e334]: Original preserved for every dish and note.
+            - paragraph [ref=e335]: Ingredients and allergens are translated with extra caution.
+      - generic [ref=e337]:
+        - generic [ref=e338]:
+          - generic [ref=e339]: Fair, transparent pricing
+          - heading "One price per center. No per-parent fees." [level=2] [ref=e340]
+          - paragraph [ref=e341]: Cancel anytime. All plans include unlimited parents and unlimited notifications.
+        - generic [ref=e342]:
+          - generic [ref=e344]:
+            - heading "Starter" [level=3] [ref=e346]
+            - generic [ref=e347]:
+              - generic [ref=e348]: â‚¬49
+              - generic [ref=e349]: / month
+            - paragraph [ref=e350]: For a single small group
+            - link "Start free" [ref=e351] [cursor=pointer]:
+              - /url: /auth
+            - list [ref=e352]:
+              - listitem [ref=e353]:
+                - generic [ref=e356]: Up to 25 children
+              - listitem [ref=e357]:
+                - generic [ref=e360]: Daily reports & menu
+              - listitem [ref=e361]:
+                - generic [ref=e364]: Parent chat & notifications
+              - listitem [ref=e365]:
+                - generic [ref=e368]: 1 admin, 3 teachers
+          - generic [ref=e370]:
+            - generic [ref=e371]: Most loved
+            - heading "Pro" [level=3] [ref=e373]
+            - generic [ref=e374]:
+              - generic [ref=e375]: â‚¬149
+              - generic [ref=e376]: / month
+            - paragraph [ref=e377]: For a full daycare
+            - link "Start 30-day trial" [ref=e378] [cursor=pointer]:
+              - /url: /auth
+            - list [ref=e379]:
+              - listitem [ref=e380]:
+                - generic [ref=e383]: Up to 150 children
+              - listitem [ref=e384]:
+                - generic [ref=e387]: AI voice reports & menu OCR
+              - listitem [ref=e388]:
+                - generic [ref=e391]: Auto-translation & allergen alerts
+              - listitem [ref=e392]:
+                - generic [ref=e395]: Payments & invoicing
+              - listitem [ref=e396]:
+                - generic [ref=e399]: Unlimited staff Â· 4 languages
+          - generic [ref=e401]:
+            - heading "Enterprise" [level=3] [ref=e403]
+            - generic [ref=e404]: Custom
+            - paragraph [ref=e406]: Chains & municipalities
+            - link "Talk to sales" [ref=e407] [cursor=pointer]:
+              - /url: /auth
+            - list [ref=e408]:
+              - listitem [ref=e409]:
+                - generic [ref=e412]: Multiple locations & rollups
+              - listitem [ref=e413]:
+                - generic [ref=e416]: SSO & custom roles
+              - listitem [ref=e417]:
+                - generic [ref=e420]: Advanced analytics & exports
+              - listitem [ref=e421]:
+                - generic [ref=e424]: Priority onboarding & SLA
+      - generic [ref=e426]:
+        - generic [ref=e427]:
+          - generic [ref=e428]: Loved by teams
+          - heading "Warm words from real directors." [level=2] [ref=e429]
+        - generic [ref=e430]:
+          - figure "E Elena K. Director, Sunny Kids (Bucharest)" [ref=e431]:
+            - blockquote [ref=e435]: “Teachers used to spend the last hour typing reports. Now they speak and confirm — parents get updates before pickup.”
+            - generic [ref=e436]:
+              - generic [ref=e437]: E
+              - generic [ref=e438]:
+                - generic [ref=e439]: Elena K.
+                - generic [ref=e440]: Director, Sunny Kids (Bucharest)
+          - figure "A Andriy P. Founder, Малятко (Kyiv)" [ref=e441]:
+            - blockquote [ref=e445]: “The menu OCR alone was worth switching. Parents finally trust what their kids eat — allergens are impossible to miss.”
+            - generic [ref=e446]:
+              - generic [ref=e447]: A
+              - generic [ref=e448]:
+                - generic [ref=e449]: Andriy P.
+                - generic [ref=e450]: Founder, Малятко (Kyiv)
+          - figure "M Marta S. Head of Ops, BrightPath centers" [ref=e451]:
+            - blockquote [ref=e455]: “One tool for parents, teachers and our accountant. We closed three subscriptions in the first month.”
+            - generic [ref=e456]:
+              - generic [ref=e457]: M
+              - generic [ref=e458]:
+                - generic [ref=e459]: Marta S.
+                - generic [ref=e460]: Head of Ops, BrightPath centers
+      - generic [ref=e462]:
+        - generic [ref=e463]:
+          - generic [ref=e464]: FAQ
+          - heading "Questions we hear most often." [level=2] [ref=e465]
+        - generic [ref=e466]:
+          - heading [level=3] [ref=e468]:
+            - button "Do you use facial recognition or biometric data?" [ref=e469] [cursor=pointer]
+          - heading [level=3] [ref=e473]:
+            - button "Can AI make medical decisions or diagnoses?" [ref=e474] [cursor=pointer]
+          - heading [level=3] [ref=e478]:
+            - button "Which languages are supported?" [ref=e479] [cursor=pointer]
+          - heading [level=3] [ref=e483]:
+            - button "How long does it take to set up a group?" [ref=e484] [cursor=pointer]
+          - heading [level=3] [ref=e488]:
+            - button "Is our data private?" [ref=e489] [cursor=pointer]
+          - heading [level=3] [ref=e493]:
+            - button "Can we import from our current tool?" [ref=e494] [cursor=pointer]
+    - contentinfo [ref=e497]:
+      - generic [ref=e498]:
+        - generic [ref=e499]:
+          - generic [ref=e500]:
+            - link "KinderFlow AI" [ref=e501] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e507]: A warm, modern operating system for daycares, after-school centers and children's clubs. Built for parents, teachers and admins alike.
+          - generic [ref=e508]:
+            - generic [ref=e509]: Product
+            - list [ref=e510]:
+              - listitem [ref=e511]:
+                - link "For whom" [ref=e512] [cursor=pointer]:
+                  - /url: "#for-whom"
+              - listitem [ref=e513]:
+                - link "Features" [ref=e514] [cursor=pointer]:
+                  - /url: "#features"
+              - listitem [ref=e515]:
+                - link "AI copilots" [ref=e516] [cursor=pointer]:
+                  - /url: "#ai"
+              - listitem [ref=e517]:
+                - link "Pricing" [ref=e518] [cursor=pointer]:
+                  - /url: "#pricing"
+          - generic [ref=e519]:
+            - generic [ref=e520]: Get started
+            - list [ref=e521]:
+              - listitem [ref=e522]:
+                - link "Sign in" [ref=e523] [cursor=pointer]:
+                  - /url: /auth
+              - listitem [ref=e524]:
+                - link "Open the app" [ref=e525] [cursor=pointer]:
+                  - /url: /app
+              - listitem [ref=e526]:
+                - link "FAQ" [ref=e527] [cursor=pointer]:
+                  - /url: "#faq"
+        - generic [ref=e528]:
+          - generic [ref=e529]: © 2026 KinderFlow AI. All rights reserved.
+          - generic [ref=e530]:
+            - generic [ref=e531]: English
+            - generic [ref=e532]: Русский
+            - generic [ref=e533]: Українська
+            - generic [ref=e534]: Română
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e540] [cursor=pointer]
